@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils'
+import { Map } from './Map'
 
 interface Amenity {
   name: string
@@ -12,6 +13,9 @@ interface LocationCardProps {
   amenities: Amenity[]
   mapPlaceholder?: boolean
   className?: string
+  latitude?: number
+  longitude?: number
+  mapTitle?: string
 }
 
 export function LocationCard({
@@ -20,7 +24,10 @@ export function LocationCard({
   address,
   amenities,
   mapPlaceholder = true,
-  className
+  className,
+  latitude,
+  longitude,
+  mapTitle
 }: LocationCardProps) {
   return (
     <div className={cn('grid md:grid-cols-2 gap-8', className)}>
@@ -46,7 +53,9 @@ export function LocationCard({
               <h4 className="font-bold text-black mb-1">Location</h4>
               <p className="text-gray-700 mb-2">{address}</p>
               <a 
-                href="#" 
+                href={latitude && longitude ? `https://www.openstreetmap.org/?mlat=${latitude}&mlon=${longitude}#map=16/${latitude}/${longitude}` : "#"}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-sm text-black hover:underline flex items-center gap-1"
               >
                 Get Directions
@@ -75,8 +84,17 @@ export function LocationCard({
         </div>
       </div>
 
-      {/* Right Column - Map Placeholder */}
-      {mapPlaceholder && (
+      {/* Right Column - Map */}
+      {latitude && longitude ? (
+        <Map
+          latitude={latitude}
+          longitude={longitude}
+          title={mapTitle || title}
+          address={address}
+          height="400px"
+          className="border"
+        />
+      ) : mapPlaceholder ? (
         <div className="bg-gray-200 rounded-lg flex items-center justify-center min-h-[400px]">
           <div className="text-center">
             <div className="w-16 h-16 bg-gray-400 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -85,7 +103,7 @@ export function LocationCard({
             <p className="text-gray-600 text-sm">Map placeholder</p>
           </div>
         </div>
-      )}
+      ) : null}
     </div>
   )
 }

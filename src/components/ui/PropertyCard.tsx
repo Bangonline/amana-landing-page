@@ -1,8 +1,10 @@
 import { Card, CardContent, CardHeader, CardTitle } from './Card'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
+import { Property } from '@/types/property'
 
-interface PropertyCardProps {
+// Support both old interface and new Property interface
+interface LegacyPropertyCardProps {
   title: string
   price: string
   beds: number
@@ -14,26 +16,62 @@ interface PropertyCardProps {
   className?: string
 }
 
-export function PropertyCard({
-  title,
-  price,
-  beds,
-  baths,
-  carSpaces,
-  description,
-  isSold = false,
-  imageUrl,
-  className
-}: PropertyCardProps) {
+interface PropertyCardProps {
+  property?: Property
+  className?: string
+}
+
+type CombinedPropertyCardProps = PropertyCardProps | LegacyPropertyCardProps
+
+function isLegacyProps(props: CombinedPropertyCardProps): props is LegacyPropertyCardProps {
+  return 'title' in props;
+}
+
+export function PropertyCard(props: CombinedPropertyCardProps) {
+  // Support both legacy props and new Property interface
+  let title: string, price: string, beds: number, baths: number, carSpaces: number;
+  let description: string, isSold: boolean, imageUrl: string | undefined, className: string | undefined;
+  let statusMessage: string | undefined, detailsUrl: string | undefined;
+
+  if (isLegacyProps(props)) {
+    // Legacy interface support
+    ({ title, price, beds, baths, carSpaces, description, className } = props);
+    isSold = props.isSold || false;
+    imageUrl = props.imageUrl;
+  } else {
+    // New Property interface
+    const { property } = props;
+    if (!property) {
+      return null;
+    }
+    
+    title = property.title;
+    price = property.priceDisplay;
+    beds = property.bedrooms;
+    baths = property.bathrooms;
+    carSpaces = property.carSpaces;
+    description = property.description;
+    isSold = property.status === 'sold';
+    imageUrl = property.images[0]?.url;
+    className = props.className;
+    statusMessage = property.statusMessage;
+    detailsUrl = property.detailsUrl || property.packageUrl;
+  }
+
   return (
     <Card className={cn('relative overflow-hidden', className)}>
-      {isSold && (
+      {(isSold || statusMessage) && (
         <div className="absolute top-4 left-4 z-10 bg-gray-800 text-white px-3 py-1 text-sm font-medium rounded">
-          SOLD
+          {statusMessage || 'SOLD'}
         </div>
       )}
       
-      <div className="aspect-square bg-gray-200 flex items-center justify-center relative">
+      <a 
+        href={detailsUrl || "#"} 
+        className="block aspect-square bg-gray-200 flex items-center justify-center relative hover:opacity-80 transition-opacity cursor-pointer"
+        target={detailsUrl ? "_blank" : undefined}
+        rel={detailsUrl ? "noopener noreferrer" : undefined}
+      >
         {imageUrl ? (
           <Image src={imageUrl} alt={title} className="object-cover" fill />
         ) : (
@@ -41,7 +79,7 @@ export function PropertyCard({
             <span className="text-gray-600 text-2xl">🏠</span>
           </div>
         )}
-      </div>
+      </a>
       
       <CardHeader className="pb-2">
         <CardTitle className="text-lg font-bold uppercase">{title}</CardTitle>
@@ -67,8 +105,10 @@ export function PropertyCard({
         <p className="text-sm text-gray-700 mb-4">{description}</p>
         
         <a 
-          href="#" 
+          href={detailsUrl || "#"} 
           className="text-sm font-medium text-black hover:underline flex items-center gap-1"
+          target={detailsUrl ? "_blank" : undefined}
+          rel={detailsUrl ? "noopener noreferrer" : undefined}
         >
           View package details
           <span>→</span>

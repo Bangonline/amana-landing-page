@@ -1,8 +1,10 @@
 import { cn } from '@/lib/utils'
+import Image from 'next/image'
 
 interface Service {
   name: string
   icon?: string
+  iconSvg?: string // New property for SVG file path
 }
 
 interface ServicesGridProps {
@@ -40,9 +42,19 @@ export function ServicesGrid({
         {services.map((service, index) => (
           <div key={index} className="text-center">
             <div className="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center mx-auto mb-3">
-              <span className="text-gray-600 text-xl">
-                {service.icon || '📦'}
-              </span>
+              {service.iconSvg ? (
+                <Image
+                  src={service.iconSvg}
+                  alt={service.name}
+                  width={24}
+                  height={24}
+                  className="w-6 h-6"
+                />
+              ) : (
+                <span className="text-gray-600 text-xl">
+                  {service.icon || '📦'}
+                </span>
+              )}
             </div>
             <h4 className="font-medium text-black text-sm">{service.name}</h4>
           </div>

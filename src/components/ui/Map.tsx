@@ -9,6 +9,8 @@ interface MapProps {
   zoom?: number;
   className?: string;
   height?: string;
+  title?: string;
+  address?: string;
   markers?: Array<{
     lat: number;
     lng: number;
@@ -23,6 +25,8 @@ export function Map({
   zoom = 15, 
   className,
   height = '400px',
+  title = 'Village Location',
+  address = '',
 }: MapProps) {
   const mapRef = useRef<HTMLDivElement>(null);
 
@@ -33,29 +37,44 @@ export function Map({
     const mapContainer = mapRef.current;
     mapContainer.innerHTML = '';
 
-    // Create iframe for OpenStreetMap
+    // Calculate bbox for proper zoom
+    const offset = 0.005; // Smaller offset for better zoom
+    const bbox = `${longitude-offset},${latitude-offset},${longitude+offset},${latitude+offset}`;
+
+    // Create iframe for OpenStreetMap with marker
     const iframe = document.createElement('iframe');
-    iframe.src = `https://www.openstreetmap.org/export/embed.html?bbox=${longitude-0.01},${latitude-0.01},${longitude+0.01},${latitude+0.01}&layer=mapnik&marker=${latitude},${longitude}`;
+    iframe.src = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${latitude},${longitude}`;
     iframe.width = '100%';
     iframe.height = height;
     iframe.frameBorder = '0';
     iframe.style.border = 'none';
     iframe.style.borderRadius = '0.75rem';
+    iframe.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
 
     mapContainer.appendChild(iframe);
+
+    // Add custom info overlay
+    const infoDiv = document.createElement('div');
+    infoDiv.innerHTML = `
+      <div style="position: absolute; top: 12px; left: 12px; background: white; padding: 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); max-width: 250px; z-index: 10;">
+        <h4 style="margin: 0 0 4px 0; font-weight: 600; font-size: 14px; color: #1f2937;">${title}</h4>
+        ${address ? `<p style="margin: 0; font-size: 12px; color: #6b7280; line-height: 1.4;">${address}</p>` : ''}
+      </div>
+    `;
+    mapContainer.appendChild(infoDiv);
 
     // Add attribution
     const attributionDiv = document.createElement('div');
     attributionDiv.innerHTML = `
-      <div style="position: absolute; bottom: 8px; right: 8px; background: white; padding: 4px 8px; border-radius: 4px; font-size: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-        <a href="https://www.openstreetmap.org/copyright" target="_blank" style="color: #333; text-decoration: none;">
+      <div style="position: absolute; bottom: 8px; right: 8px; background: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); z-index: 10;">
+        <a href="https://www.openstreetmap.org/copyright" target="_blank" style="color: #6b7280; text-decoration: none;">
           © OpenStreetMap contributors
         </a>
       </div>
     `;
     mapContainer.appendChild(attributionDiv);
 
-  }, [latitude, longitude, zoom, height]);
+  }, [latitude, longitude, zoom, height, title, address]);
 
   return (
     <div 
