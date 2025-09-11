@@ -22,12 +22,12 @@ export function Breadcrumb({ items }: BreadcrumbProps) {
               {item.href ? (
                 <Link 
                   href={item.href} 
-                  className="text-orange-500 hover:text-orange-600 transition-colors uppercase"
+                  className="text-orange-500 hover:text-orange-600 transition-colors"
                 >
                   {item.label}
                 </Link>
               ) : (
-                <span className="text-gray-800 uppercase font-semibold">{item.label}</span>
+                <span className="text-gray-800 font-semibold">{item.label}</span>
               )}
             </div>
           ))}
