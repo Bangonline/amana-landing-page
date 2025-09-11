@@ -9,6 +9,7 @@ export interface VillageConsultant {
 export interface VillageAmenity {
   name: string
   distance: string
+  iconSvg: string
 }
 
 export interface VillageService {

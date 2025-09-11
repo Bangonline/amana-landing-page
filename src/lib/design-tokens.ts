@@ -30,7 +30,8 @@ export const colors = {
     },
     // Background colors
     background: {
-      light: '#BED1E3', // Light blue-grey background
+      light: '#BED1E3', // Light blue-grey background (matches Amana Living website)
+      primary: '#BED1E3', // Primary blue background for sections
       white: '#FFFFFF',
       offwhite: '#F8FAFC',
     },
