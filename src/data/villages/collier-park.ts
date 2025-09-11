@@ -46,9 +46,11 @@ export const collierParkData: VillageData = {
     'Enjoy a diverse range of activities and events such as cards, bingo, afternoon teas, and exercise classes, all held exclusively for our residents\' enjoyment in the Community Centre. Additionally, our comprehensive library offers a wide selection of movies for borrowing, providing ample opportunities for relaxation and entertainment.'
   ],
   consultant: {
-    name: '',
-    description: 'Interested in finding out more information or booking a tour of Collier Park Village? Get in touch with our friendly consultant to learn more about our beautiful village and arrange a personalized tour.',
-    phone: '0459 819 169'
+    name: 'Lorraine Baldwin',
+    image: '/images/lorraine.jpeg',
+    phone: '1300 26 26 26',
+    email: 'LBaldwin@amanaliving.com.au',
+    description: 'Interested in finding out more information or booking a tour of Collier Park Village? Get in touch with Lorraine our friendly consultant to learn more about our beautiful village and arrange a personalized tour.'
   },
   
   // Location section
@@ -61,12 +63,12 @@ export const collierParkData: VillageData = {
     mapTitle: 'Collier Park Village'
   },
   nearbyAmenities: [
-    { name: 'Medical Centre', distance: '1.2 km' },
-    { name: 'Hospital', distance: '5.8 kms' },
-    { name: 'Shopping Centre', distance: '0.9 km' },
-    { name: 'Bus Stop', distance: '0.3 km' },
-    { name: 'Train Station', distance: '2.5 km' },
-    { name: 'Perth CBD', distance: '9.2 km' }
+    { name: 'Medical Centre', distance: '1.2 km', iconSvg: '/images/icons/medical-surgery.svg' },
+    { name: 'Hospital', distance: '5.8 km', iconSvg: '/images/icons/hospital.svg' },
+    { name: 'Shopping Centre', distance: '0.9 km', iconSvg: '/images/icons/shopping-centre.svg' },
+    { name: 'Bus Stop', distance: '0.3 km', iconSvg: '/images/icons/bus.svg' },
+    { name: 'Train Station', distance: '2.5 km', iconSvg: '/images/icons/train.svg' },
+    { name: 'Perth CBD', distance: '9.2 km', iconSvg: '/images/icons/perth.svg' }
   ],
   
   // Services sections

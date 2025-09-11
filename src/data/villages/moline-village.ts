@@ -51,6 +51,8 @@ export const molineVillageData: VillageData = {
   consultant: {
     name: 'Lorraine Baldwin',
     image: '/images/lorraine.jpeg',
+    phone: '1300 26 26 26',
+    email: 'LBaldwin@amanaliving.com.au',
     description: 'Interested in finding our more information or booking a tour of Moline Village? Get in touch with Lorraine our friendly consultant.'
   },
   
@@ -64,12 +66,12 @@ export const molineVillageData: VillageData = {
     mapTitle: 'Moline Village'
   },
   nearbyAmenities: [
-    { name: 'Medical Surgery', distance: '1 km' },
-    { name: 'Hospital', distance: '8.6 kms' },
-    { name: 'Shopping centre', distance: '1 km' },
-    { name: 'Bus stop', distance: '2 km' },
-    { name: 'Train station', distance: '3.8 km' },
-    { name: 'Perth city', distance: '11.5 km' }
+    { name: 'Medical Surgery', distance: '1 km', iconSvg: '/images/icons/medical-surgery.svg' },
+    { name: 'Hospital', distance: '8.6 km', iconSvg: '/images/icons/hospital.svg' },
+    { name: 'Shopping Centre', distance: '1 km', iconSvg: '/images/icons/shopping-centre.svg' },
+    { name: 'Bus Stop', distance: '2 km', iconSvg: '/images/icons/bus.svg' },
+    { name: 'Train Station', distance: '3.8 km', iconSvg: '/images/icons/train.svg' },
+    { name: 'Perth City', distance: '11.5 km', iconSvg: '/images/icons/perth.svg' }
   ],
   
   // Services sections
