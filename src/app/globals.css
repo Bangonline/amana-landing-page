@@ -65,6 +65,24 @@ body {
   background: linear-gradient(135deg, var(--amana-background-light) 0%, #e6f2ff 100%);
 }
 
+/* Hero background component styles */
+[data-hero-background] {
+  position: relative;
+}
+
+[data-hero-background] svg {
+  transition: transform 0.3s ease;
+}
+
+[data-hero-background]:hover svg {
+  transform: scale(1.01);
+}
+
+/* Enhanced SVG styling for better visual appeal */
+.hero-svg-overlay {
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.07));
+}
+
 .amana-card {
   background: white;
   border-radius: 0.75rem;
