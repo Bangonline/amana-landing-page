@@ -125,8 +125,8 @@ export const collierParkData: VillageData = {
   
   // Navigation
   breadcrumbItems: [
-    { label: 'HOME', href: '/' },
-    { label: 'RETIREMENT VILLAGES', href: '/retirement-villages' },
-    { label: 'COLLIER PARK VILLAGE' }
+    { label: 'HOME', href: 'https://www.amanaliving.com.au/' },
+    { label: 'Retirement Villages', href: 'https://www.amanaliving.com.au/retirement-villages' },
+    { label: 'Collier Park Village' }
   ]
 }

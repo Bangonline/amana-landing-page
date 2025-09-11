@@ -17,17 +17,17 @@ export function AmanaHeader() {
       {/* Top Header Section - exact match to live site */}
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between py-3">
-            {/* Logo */}
+          <div className="flex items-center py-3">
+            {/* Logo - Left side */}
             <Link href="https://www.amanaliving.com.au/" className="flex-shrink-0">
               {/* Desktop Logo */}
               <Image
                 src="/images/logo-amana-horizontal-no_byline.svg"
                 alt="Amana Living"
-                width={186}
-                height={56}
-                className="hidden sm:block h-10 w-auto"
-                sizes="186px"
+                width={260}
+                height={78}
+                className="hidden sm:block h-auto w-[260px]"
+                sizes="260px"
               />
               {/* Mobile Logo */}
               <Image
@@ -40,43 +40,44 @@ export function AmanaHeader() {
               />
             </Link>
 
-            {/* Center section with "A part of the Anglican Community" and navigation */}
-            <div className="hidden lg:flex items-center space-x-8 flex-1 justify-center">
-              <span className="text-sm text-gray-600 font-medium">A part of the Anglican Community</span>
+            {/* Right content - 65% column, right-aligned, stacked */}
+            <div className="hidden lg:flex flex-col items-end justify-center w-[65%] ml-auto space-y-2">
+              {/* Anglican Community tagline */}
+              <span className="text-sm text-gray-600 font-medium uppercase">A PART OF THE ANGLICAN COMMUNITY</span>
+              
+              {/* Navigation links - inline */}
               <nav className="flex items-center space-x-6">
-                <Link href="https://www.amanaliving.com.au/about-us" className="text-sm text-gray-800 hover:text-gray-600 transition-colors">
+                <Link href="https://www.amanaliving.com.au/about-us" className="text-base font-semibold text-gray-800 hover:text-gray-600 transition-colors">
                   About Us
                 </Link>
-                <Link href="https://www.amanaliving.com.au/about-us/news-and-events" className="text-sm text-gray-800 hover:text-gray-600 transition-colors">
+                <Link href="https://www.amanaliving.com.au/about-us/news-and-events" className="text-base font-semibold text-gray-800 hover:text-gray-600 transition-colors">
                   News
                 </Link>
-                <Link href="https://www.amanaliving.com.au/about-us/how-you-can-help/donate" className="text-sm text-gray-800 hover:text-gray-600 transition-colors">
+                <Link href="https://www.amanaliving.com.au/about-us/how-you-can-help/donate" className="text-base font-semibold text-gray-800 hover:text-gray-600 transition-colors">
                   Donate
                 </Link>
-                <Link href="https://careers.amanaliving.com.au/" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-800 hover:text-gray-600 transition-colors">
+                <Link href="https://careers.amanaliving.com.au/" target="_blank" rel="noopener noreferrer" className="text-base font-semibold text-gray-800 hover:text-gray-600 transition-colors">
                   Careers
                 </Link>
-                <Link href="https://training.amanaliving.com.au" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-800 hover:text-gray-600 transition-colors">
+                <Link href="https://training.amanaliving.com.au" target="_blank" rel="noopener noreferrer" className="text-base font-semibold text-gray-800 hover:text-gray-600 transition-colors">
                   Training
                 </Link>
-                <Link href="https://www.amanaliving.com.au/about-us/how-you-can-help/volunteer" className="text-sm text-gray-800 hover:text-gray-600 transition-colors">
+                <Link href="https://www.amanaliving.com.au/about-us/how-you-can-help/volunteer" className="text-base font-semibold text-gray-800 hover:text-gray-600 transition-colors">
                   Volunteer
                 </Link>
-                <Link href="https://www.amanaliving.com.au/contact-us" className="text-sm text-gray-800 hover:text-gray-600 transition-colors">
+                <Link href="https://www.amanaliving.com.au/contact-us" className="text-base font-semibold text-gray-800 hover:text-gray-600 transition-colors">
                   Contact
                 </Link>
               </nav>
-            </div>
-
-            {/* Right section with phone and search */}
-            <div className="hidden lg:flex items-center space-x-4">
-              <a href="tel:1300262626" className="text-sm font-bold text-gray-800 hover:text-gray-600 transition-colors">
+              
+              {/* Contact phone */}
+              <a href="tel:1300262626" className="text-lg font-bold text-gray-800 hover:text-gray-600 transition-colors">
                 Contact us: 1300 26 26 26
               </a>
             </div>
 
             {/* Mobile Menu Button */}
-            <div className="flex items-center space-x-2 lg:hidden">
+            <div className="flex items-center space-x-2 lg:hidden ml-auto">
               <a href="tel:1300262626" className="text-sm font-bold text-gray-800">
                 1300 26 26 26
               </a>
@@ -99,25 +100,25 @@ export function AmanaHeader() {
       {/* Main Navigation Bar */}
       <div style={{ backgroundColor: '#004676' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="flex items-center justify-between py-4">
+          <nav className="flex items-center justify-end py-4">
             {/* Main Navigation Links */}
             <div className="hidden sm:flex items-center space-x-8">
-              <Link href="https://www.amanaliving.com.au/home-care/our-home-care-services" className="text-white hover:text-orange-400 transition-colors text-sm font-medium">
+              <Link href="https://www.amanaliving.com.au/home-care/our-home-care-services" className="text-white hover:text-orange-400 transition-colors text-base font-bold">
                 Home Care
               </Link>
-              <Link href="https://www.amanaliving.com.au/retirement-villages" className="text-orange-400 border-b-2 border-orange-400 text-sm font-medium pb-1">
+              <Link href="https://www.amanaliving.com.au/retirement-villages" className="text-orange-400 border-b-2 border-orange-400 text-base font-bold pb-1">
                 Retirement Villages
               </Link>
-              <Link href="https://www.amanaliving.com.au/nursing-homes" className="text-white hover:text-orange-400 transition-colors text-sm font-medium">
+              <Link href="https://www.amanaliving.com.au/nursing-homes" className="text-white hover:text-orange-400 transition-colors text-base font-bold">
                 Aged Care Homes
               </Link>
-              <Link href="https://www.amanaliving.com.au/other-care-services/respite-care/mosman-park" className="text-white hover:text-orange-400 transition-colors text-sm font-medium">
+              <Link href="https://www.amanaliving.com.au/other-care-services/respite-care/mosman-park" className="text-white hover:text-orange-400 transition-colors text-base font-bold">
                 Respite
               </Link>
-              <Link href="https://www.amanaliving.com.au/other-care-services/transition-care" className="text-white hover:text-orange-400 transition-colors text-sm font-medium">
+              <Link href="https://www.amanaliving.com.au/other-care-services/transition-care" className="text-white hover:text-orange-400 transition-colors text-base font-bold">
                 Transition Care
               </Link>
-              <Link href="https://www.amanaliving.com.au/other-care-services" className="text-white hover:text-orange-400 transition-colors text-sm font-medium">
+              <Link href="https://www.amanaliving.com.au/other-care-services" className="text-white hover:text-orange-400 transition-colors text-base font-bold">
                 Other Care Services
               </Link>
             </div>

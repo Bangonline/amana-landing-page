@@ -62,7 +62,17 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button>
+                  <Button
+                    onClick={() => {
+                      const element = document.getElementById('tour-booking');
+                      if (element) {
+                        element.scrollIntoView({ 
+                          behavior: 'smooth',
+                          block: 'start'
+                        });
+                      }
+                    }}
+                  >
                     Make an enquiry
                   </Button>
                   <Button 
@@ -265,7 +275,17 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
                 ))}
               </div>
 
-              <Button>
+              <Button
+                onClick={() => {
+                  const element = document.getElementById('tour-booking');
+                  if (element) {
+                    element.scrollIntoView({ 
+                      behavior: 'smooth',
+                      block: 'start'
+                    });
+                  }
+                }}
+              >
                 Book a tour today
               </Button>
             </div>
@@ -312,7 +332,7 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
       </section>
 
       {/* Tour Booking Section */}
-      <section className="py-16 px-4 text-white" style={{ backgroundColor: '#004676' }}>
+      <section id="tour-booking" className="py-16 px-4 text-white" style={{ backgroundColor: '#004676' }}>
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
@@ -327,7 +347,7 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
             <ConsultantPanel 
               consultant={villageData.consultant} 
               villageName={villageData.name}
-              className="bg-blue-900 border-gray-600"
+              className="bg-white border-gray-200"
             />
           </div>
         </div>

@@ -128,8 +128,8 @@ export const molineVillageData: VillageData = {
   
   // Navigation
   breadcrumbItems: [
-    { label: 'HOME', href: '/' },
-    { label: 'RETIREMENT VILLAGES', href: '/retirement-villages' },
-    { label: 'MOLINE VILLAGE' }
+    { label: 'Home', href: 'https://www.amanaliving.com.au/' },
+    { label: 'Retirement Villages', href: 'https://www.amanaliving.com.au/retirement-villages' },
+    { label: 'Moline Village' }
   ]
 }
