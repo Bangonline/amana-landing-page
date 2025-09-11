@@ -1,18 +1,30 @@
 # Amana Living Retirement Village Landing Pages
 
-A modern, responsive website built with Next.js 15, TypeScript, and Tailwind CSS for Amana Living retirement villages with **real-time property extraction** from the main Amana Living website.
+A modern, responsive website built with Next.js 15, TypeScript, and Tailwind CSS for Amana Living retirement villages featuring an **advanced real-time property extraction system** that automatically syncs with amanaliving.com.au.
 
-## 🏘️ Features
+## 🏘️ Key Features
 
-- **Two Complete Landing Pages**: Moline Village and Riverside Village
-- **Real-time Property Data**: Automatically extracts apartments from amanaliving.com.au using `__NEXT_DATA__`
-- **Smart Property Extraction**: Uses GraphQL cache data for reliable property information
-- **Global Edge Storage**: Properties stored in Vercel Edge Config for instant worldwide access
-- **Automated Sync**: Updates every 6 hours via Vercel cron jobs
-- **Responsive Design**: Mobile-first approach with Tailwind CSS
+### 🏠 Dynamic Property System
+- **Real-time Property Data**: Automatically extracts apartments from amanaliving.com.au using `__NEXT_DATA__` structure
+- **Smart JSON Reconstruction**: Advanced character array reconstruction from urql GraphQL cache
+- **Intelligent Property Detection**: Uses keyword matching (apartment, villa, bedroom, price, sold) to identify properties
+- **Global Edge Storage**: Properties stored in Vercel Edge Config for <50ms worldwide access
+- **Automated Sync**: Updates every 6 hours via Vercel cron jobs (configurable)
+- **Rich Property Details**: Pricing, bedrooms, bathrooms, features, status, and high-quality images
+
+### 🎨 Landing Pages & Design
+- **Two Complete Village Sites**: Moline Village and Riverside Village
+- **Responsive Design**: Mobile-first approach with Tailwind CSS v4
 - **Modern Components**: Reusable UI components with dynamic property support
+- **Clean Design System**: Minimalist aesthetic based on Figma wireframes
 - **SEO Optimized**: Proper meta tags and semantic HTML
-- **Fast Performance**: Built with Next.js 15 and optimized for Vercel deployment
+
+### ⚡ Performance & Development
+- **Next.js 15**: App Router with Turbopack for ultra-fast builds
+- **React 19**: Latest React features and concurrent rendering
+- **TypeScript**: Full type safety with comprehensive property interfaces
+- **Fast Performance**: Optimized for Vercel deployment with Edge Config
+- **Developer Experience**: Rich hooks, components, and debug tools
 
 ## 🚀 Getting Started
 
@@ -38,44 +50,68 @@ A modern, responsive website built with Next.js 15, TypeScript, and Tailwind CSS
 ## 📁 Project Structure
 
 ```
-src/
-├── app/
-│   ├── (landing-pages)/
-│   │   ├── location-1/          # Moline Village
-│   │   └── location-2/          # Riverside Village
-│   ├── api/                     # API routes
-│   │   ├── properties/          # Property API endpoints
-│   │   │   ├── route.ts         # Main properties API
-│   │   │   ├── sync/            # Sync trigger endpoint
-│   │   │   ├── debug-data/      # Debug data structure
-│   │   │   └── debug-reconstruction/ # Debug JSON reconstruction
-│   │   └── test-scraper/        # Scraper testing endpoint
-│   ├── globals.css
-│   ├── layout.tsx
-│   └── page.tsx                 # Home page
-├── components/
-│   ├── ui/                      # Reusable UI components
-│   │   ├── DynamicPropertySection.tsx  # Dynamic property loader
-│   │   ├── PropertyCard.tsx     # Enhanced property card
-│   │   ├── AmenityTag.tsx
-│   │   ├── Button.tsx
-│   │   ├── Card.tsx
-│   │   ├── FAQAccordion.tsx
-│   │   ├── Hero.tsx
-│   │   ├── LocationCard.tsx
-│   │   ├── ServicesGrid.tsx
-│   │   └── Testimonial.tsx
-│   ├── sections/                # Page sections
-│   └── layout/                  # Layout components
-├── hooks/
-│   └── useProperties.ts         # React hooks for property data
-├── lib/
-│   ├── property-extractor.ts    # Main property extraction logic
-│   ├── utils.ts                 # Utility functions
-│   └── design-tokens.ts         # Design system tokens
-└── types/
-    ├── index.ts                 # General type definitions
-    └── property.ts              # Property-specific types
+project-root/
+├── src/
+│   ├── app/                           # Next.js 15 App Router
+│   │   ├── (landing-pages)/          # Route groups for villages
+│   │   │   ├── location-1/           # Moline Village landing page
+│   │   │   │   └── page.tsx
+│   │   │   └── location-2/           # Riverside Village landing page
+│   │   │       └── page.tsx
+│   │   ├── api/                      # API routes and server functions
+│   │   │   ├── analyze-data/         # Data analysis endpoint
+│   │   │   ├── properties/           # Property API ecosystem
+│   │   │   │   ├── route.ts          # Main properties API with filtering
+│   │   │   │   ├── sync/             # Property sync trigger
+│   │   │   │   ├── debug-data/       # Debug data structure analysis
+│   │   │   │   ├── debug-reconstruction/ # Test JSON reconstruction
+│   │   │   │   ├── debug-simple/     # Simple debug endpoint
+│   │   │   │   └── test-extraction/  # Test property extraction
+│   │   │   └── test-scraper/         # Scraper testing endpoint
+│   │   ├── favicon.ico
+│   │   ├── globals.css               # Global Tailwind styles
+│   │   └── layout.tsx                # Root layout component
+│   ├── components/
+│   │   ├── ui/                       # Reusable UI components
+│   │   │   ├── DynamicPropertySection.tsx  # Smart property loader
+│   │   │   ├── PropertyCard.tsx      # Enhanced property display
+│   │   │   ├── AmenityTag.tsx        # Feature tags
+│   │   │   ├── Button.tsx            # Consistent buttons
+│   │   │   ├── Card.tsx              # Base card component
+│   │   │   ├── FAQAccordion.tsx      # Collapsible FAQ
+│   │   │   ├── Hero.tsx              # Hero sections
+│   │   │   ├── ImageGallery.tsx      # Property image viewer
+│   │   │   ├── LocationCard.tsx      # Village overview cards
+│   │   │   ├── Map.tsx               # Interactive maps
+│   │   │   ├── ServicesGrid.tsx      # Service/amenity grids
+│   │   │   └── Testimonial.tsx       # Resident testimonials
+│   │   ├── sections/                 # Page section components
+│   │   └── layout/                   # Layout and navigation
+│   │       ├── AmanaHeader.tsx       # Brand header
+│   │       ├── Breadcrumb.tsx        # Navigation breadcrumbs
+│   │       └── Header.tsx            # Main site header
+│   ├── hooks/
+│   │   └── useProperties.ts          # Property data React hooks
+│   ├── lib/
+│   │   ├── property-extractor.ts     # Advanced property extraction
+│   │   ├── utils.ts                  # Utility functions (clsx, etc.)
+│   │   └── design-tokens.ts          # Design system constants
+│   └── types/
+│       ├── index.ts                  # General TypeScript definitions
+│       └── property.ts               # Property-specific interfaces
+├── lib/                              # Root-level utilities
+│   └── scraper/
+│       └── property-extractor.ts     # Alternative extraction implementation
+├── public/                           # Static assets
+│   ├── images/
+│   │   └── icons/                    # SVG icons for amenities
+│   └── *.svg                         # Logo and brand assets
+├── vercel.json                       # Vercel deployment and cron config
+├── next.config.ts                    # Next.js configuration
+├── tsconfig.json                     # TypeScript configuration
+├── tailwind.config.js                # Tailwind CSS configuration
+├── package.json                      # Dependencies and scripts
+└── README.md                         # Project documentation
 ```
 
 ## 🎨 Design System
@@ -109,15 +145,27 @@ The project follows a clean, minimalist design system based on the provided Figm
 - Unique content and styling for the second location
 - Modern amenities and services focus
 
-## 🛠️ Built With
+## 🛠️ Technology Stack
 
-- **Next.js 15** - React framework with App Router and Turbopack
-- **TypeScript** - Type-safe JavaScript
-- **Tailwind CSS v4** - Utility-first CSS framework
-- **React 19** - Latest React features
-- **Vercel Edge Config** - Global property storage
-- **Vercel Cron Jobs** - Automated property syncing
-- **Vercel** - Deployment platform
+### Core Framework
+- **Next.js 15.5.2** - React framework with App Router and Turbopack
+- **React 19.1.0** - Latest React features and concurrent rendering
+- **TypeScript 5.9.2** - Type-safe JavaScript with strict configuration
+
+### Styling & UI
+- **Tailwind CSS v4** - Utility-first CSS framework with latest features
+- **PostCSS** - CSS processing with Tailwind integration
+- **Clsx + Tailwind Merge** - Dynamic class name composition
+
+### Infrastructure & Performance
+- **Vercel Edge Config** - Global property storage for <50ms response times
+- **Vercel Cron Jobs** - Automated property syncing every 6 hours
+- **Vercel Platform** - Deployment with automatic optimizations
+
+### Development Tools
+- **ESLint 9** - Code linting with Next.js configuration
+- **Turbopack** - Ultra-fast bundler for development and production
+- **TypeScript Strict Mode** - Maximum type safety and error prevention
 
 ## 🚀 Deployment
 
@@ -140,6 +188,177 @@ CRON_SECRET="your_random_secret"
 4. Connect your repository to Vercel
 5. Deploy with automatic cron job configuration (via `vercel.json`)
 
+## 💻 Usage Examples
+
+### Quick Start with Dynamic Properties
+
+```tsx
+import { DynamicPropertySection } from '@/components/ui/DynamicPropertySection';
+
+export default function VillagePage() {
+  return (
+    <div>
+      {/* Automatic property loading with fallback states */}
+      <DynamicPropertySection
+        village="moline"
+        title="AVAILABLE UNITS"
+        subtitle="Live properties from Amana Living"
+        maxProperties={6}
+      />
+    </div>
+  );
+}
+```
+
+### Using React Hooks for Custom Components
+
+```tsx
+import { useVillageProperties, usePropertyStats } from '@/hooks/useProperties';
+import { PropertyCard } from '@/components/ui/PropertyCard';
+
+function CustomPropertySection() {
+  const { properties, loading, error } = useVillageProperties('moline');
+  const { stats } = usePropertyStats('moline');
+
+  if (loading) return <div>Loading properties...</div>;
+  if (error) return <div>Error: {error}</div>;
+
+  return (
+    <div>
+      <h2>{stats.total} Properties Available</h2>
+      <p>Average Price: ${stats.averagePrice?.toLocaleString()}</p>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {properties.map(property => (
+          <PropertyCard key={property.id} property={property} />
+        ))}
+      </div>
+    </div>
+  );
+}
+```
+
+### Advanced Filtering
+
+```tsx
+import { useFilteredProperties } from '@/hooks/useProperties';
+
+function FilteredProperties() {
+  const { properties, loading } = useFilteredProperties({
+    village: ['moline'],
+    status: ['available'],
+    priceRange: [300000, 600000],
+    bedrooms: [2, 3]
+  });
+
+  return (
+    <div>
+      <h3>Filtered Results ({properties.length} properties)</h3>
+      {properties.map(property => (
+        <PropertyCard key={property.id} property={property} />
+      ))}
+    </div>
+  );
+}
+```
+
+## 🔌 API Reference
+
+### GET /api/properties
+Retrieve properties with comprehensive filtering options.
+
+**Query Parameters:**
+- `village`: `'moline'` | `'riverside'` | `'all'` (default: 'all')
+- `status`: `'available'` | `'sold'` | `'reserved'` | `'coming-soon'` | `'under-contract'`
+- `type`: `'apartment'` | `'villa'` | `'townhouse'` | `'studio'`
+- `minPrice`, `maxPrice`: number (price filtering)
+- `beds`, `baths`: number (room filtering)
+- `limit`: number (max results, default: 50)
+
+**Examples:**
+```bash
+# Get all available properties in Moline Village
+GET /api/properties?village=moline&status=available
+
+# Find 2-bedroom apartments under $500k
+GET /api/properties?type=apartment&beds=2&maxPrice=500000
+
+# Get first 10 properties for pagination
+GET /api/properties?limit=10
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "properties": [
+    {
+      "id": "moline-apt-308",
+      "propertyNumber": "Apartment 308",
+      "village": "moline",
+      "type": "apartment",
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "carSpaces": 1,
+      "price": 360000,
+      "priceDisplay": "$360,000",
+      "status": "available",
+      "title": "Spacious 2-bedroom apartment",
+      "description": "Beautiful apartment with modern amenities...",
+      "images": [
+        {
+          "url": "https://...",
+          "alt": "Apartment 308 living room",
+          "width": 800,
+          "height": 600
+        }
+      ],
+      "features": [
+        { "name": "Air Conditioning", "icon": "❄️" },
+        { "name": "Balcony", "icon": "🏗️" }
+      ],
+      "lastUpdated": "2024-01-15T10:30:00Z",
+      "sourceUrl": "https://www.amanaliving.com.au/..."
+    }
+  ],
+  "total": 15,
+  "filters": {
+    "village": "moline",
+    "status": "available"
+  },
+  "metadata": {
+    "lastSync": "2024-01-15T10:30:00Z",
+    "totalAvailable": 25,
+    "syncDuration": 1250
+  }
+}
+```
+
+### GET /api/properties/sync
+Trigger manual property synchronization.
+
+**Query Parameters:**
+- `force`: `'true'` to bypass cache and force fresh extraction
+
+**Response:**
+```json
+{
+  "success": true,
+  "count": 25,
+  "villages": ["moline", "riverside"],
+  "duration": 1250,
+  "timestamp": "2024-01-15T10:30:00Z",
+  "trigger": "manual"
+}
+```
+
+### Debug Endpoints
+
+#### GET /api/properties/debug-data
+Analyze the raw `__NEXT_DATA__` structure to understand data organization.
+
+#### GET /api/properties/debug-reconstruction
+Test JSON reconstruction from character arrays found in urql cache.
+
 ## 📝 Customization
 
 ### Adding New Villages
@@ -148,29 +367,17 @@ CRON_SECRET="your_random_secret"
 3. Create new landing page directory in `src/app/(landing-pages)/`
 4. Use `DynamicPropertySection` component for automatic property loading
 
-### Dynamic Property Integration
-```tsx
-import { DynamicPropertySection } from '@/components/ui/DynamicPropertySection';
-
-// Automatic property loading
-<DynamicPropertySection
-  village="moline"
-  title="AVAILABLE UNITS"
-  subtitle="Live properties from Amana Living"
-  maxProperties={6}
-/>
-```
-
 ### Property Sync Management
-- Properties sync automatically every 6 hours
-- Manual sync: `GET /api/properties/sync?force=true`
-- Debug data structure: `GET /api/properties/debug-data`
-- Monitor sync logs in Vercel Functions tab
+- **Automatic**: Properties sync every 6 hours via Vercel cron jobs
+- **Manual**: `GET /api/properties/sync?force=true`
+- **Debug**: `GET /api/properties/debug-data` for data structure analysis
+- **Monitoring**: Check Vercel Functions tab for sync logs and performance
 
-### Styling Changes
-- Modify Tailwind classes in components
-- Update design tokens in `src/lib/design-tokens.ts`
+### Styling and Theme
+- Modify Tailwind classes in components for visual changes
+- Update design tokens in `src/lib/design-tokens.ts` for consistent theming
 - Customize colors and typography in `tailwind.config.js`
+- Use CSS variables for dynamic theming support
 
 ## 🔗 Key System Files
 
@@ -193,19 +400,95 @@ import { DynamicPropertySection } from '@/components/ui/DynamicPropertySection';
 - `vercel.json` - Cron job configuration for automated syncing
 - Package dependencies: `@vercel/edge-config` for global storage
 
+## 🚨 Troubleshooting
+
+### Common Issues and Solutions
+
+#### No Properties Loading
+1. **Check Environment Variables**:
+   ```bash
+   # Verify in Vercel dashboard
+   EDGE_CONFIG="ecfg_your_edge_config_id"
+   VERCEL_TOKEN="your_vercel_token"
+   ```
+
+2. **Manual Sync**:
+   ```bash
+   curl "https://your-domain.vercel.app/api/properties/sync?force=true"
+   ```
+
+3. **Debug Data Structure**:
+   ```bash
+   curl "https://your-domain.vercel.app/api/properties/debug-data"
+   ```
+
+#### Sync Failures
+- **Character Array Detection**: Check if urql cache format has changed
+- **JSON Reconstruction**: Test reconstruction at `/api/properties/debug-reconstruction`
+- **Property Keywords**: Verify property detection logic matches current content
+- **Network Issues**: Ensure Amana Living site is accessible
+
+#### Performance Issues
+- Properties are cached in Vercel Edge Config for ultra-fast global access
+- Sync runs every 6 hours (configurable in `vercel.json`)
+- Check Vercel Functions tab for sync performance metrics
+
+#### Development Issues
+- Use `npm run dev --turbopack` for faster development builds
+- TypeScript errors: Check `tsconfig.json` for strict mode settings
+- Tailwind not updating: Clear `.next` cache and restart dev server
+
+### Debug Workflow
+1. **Test Data Source**: Visit Moline Village page manually
+2. **Check Extraction**: `GET /api/properties/debug-data?village=moline-village`
+3. **Test Reconstruction**: `GET /api/properties/debug-reconstruction`
+4. **Force Sync**: `GET /api/properties/sync?force=true`
+5. **Verify API**: `GET /api/properties?village=moline`
+
 ## 📊 System Status
 
-✅ **Live Data Source**: https://www.amanaliving.com.au/retirement-villages/locations/moline-village  
-✅ **Extraction Method**: `__NEXT_DATA__` urql GraphQL cache with character array reconstruction  
-✅ **Storage**: Vercel Edge Config for global < 50ms access  
-✅ **Sync Frequency**: Every 6 hours (configurable)  
-✅ **Debug Tools**: Available at `/api/properties/debug-*` endpoints  
+### ✅ Production Ready Features
+- **Live Data Source**: https://www.amanaliving.com.au/retirement-villages/locations/moline-village
+- **Extraction Method**: `__NEXT_DATA__` urql GraphQL cache with character array reconstruction
+- **Global Storage**: Vercel Edge Config for <50ms worldwide response times
+- **Automated Sync**: Every 6 hours via Vercel cron jobs (configurable)
+- **Error Handling**: Comprehensive fallback states and error recovery
+- **Debug Tools**: Available at `/api/properties/debug-*` endpoints
+- **Type Safety**: Full TypeScript coverage with strict mode
+- **Performance**: Optimized for Vercel Edge Network deployment
 
-## 📞 Contact
+### 🔧 Technical Capabilities
+- **Smart Extraction**: Character array reconstruction from fragmented JSON
+- **Intelligent Detection**: Property identification via keyword matching
+- **Rich Data Model**: Complete property details with images and features
+- **Filtering System**: Advanced property filtering by multiple criteria
+- **React Integration**: Custom hooks and components for seamless frontend use
+- **Monitoring**: Built-in sync metrics and performance tracking
 
-For questions about the project or to request changes, please contact the development team.
+### 🚀 Deployment Architecture
+- **Framework**: Next.js 15 with App Router and Turbopack
+- **Runtime**: Vercel Edge Functions for global performance
+- **Storage**: Vercel Edge Config for instant data access
+- **Automation**: Serverless cron jobs for property synchronization
+- **CDN**: Global content delivery via Vercel Edge Network
+
+## 📞 Support & Contact
+
+### Development Team
+For questions about the project, feature requests, or technical support, please contact the development team.
+
+### Documentation Resources
+- **Property System Details**: See `PROPERTY_SYSTEM.md` for comprehensive technical documentation
+- **API Reference**: Use `/api/properties/debug-*` endpoints for testing
+- **Type Definitions**: Check `src/types/property.ts` for complete interfaces
 
 ---
 
-Built with ❤️ for Amana Living Retirement Villages  
-**Dynamic Property System**: Real-time apartment data from amanaliving.com.au
+**Built with ❤️ for Amana Living Retirement Villages**  
+*Dynamic Property System: Real-time apartment data from amanaliving.com.au*
+
+### Quick Links
+- 🏠 [Moline Village](https://your-domain.vercel.app/location-1)
+- 🏞️ [Riverside Village](https://your-domain.vercel.app/location-2)
+- 🔌 [Properties API](https://your-domain.vercel.app/api/properties)
+- 🔄 [Sync Properties](https://your-domain.vercel.app/api/properties/sync)
