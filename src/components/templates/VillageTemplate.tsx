@@ -14,6 +14,7 @@ import { AmanaHeader } from '@/components/layout/AmanaHeader'
 import { HeroBackground } from '@/components/ui/HeroBackground'
 import { Breadcrumb } from '@/components/layout/Breadcrumb'
 import { ContactForm } from '@/components/ui/ContactForm'
+import { ConsultantPanel } from '@/components/ui/ConsultantPanel'
 import { useVillageProperties } from '@/hooks/useProperties'
 import { VillageData } from '@/types/village'
 import { VillageSlug } from '@/types/property'
@@ -125,48 +126,10 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
             </div>
 
             {/* Contact Card */}
-            <div className="bg-white p-8 rounded-lg shadow-sm border">
-              <div className="text-center space-y-6">
-                <div className="w-32 h-32 bg-gray-200 rounded-full mx-auto overflow-hidden">
-                  {villageData.consultant.image ? (
-                    <img 
-                      src={villageData.consultant.image} 
-                      alt={`${villageData.consultant.firstName} ${villageData.consultant.lastName} - ${villageData.name} Consultant`} 
-                      className="w-full h-full object-cover"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center">
-                      <span className="text-gray-600 text-2xl">👨</span>
-                    </div>
-                  )}
-                </div>
-                <div className="space-y-3">
-                  <h4 className="text-xl font-bold text-black">
-                    {villageData.consultant.firstName && villageData.consultant.lastName 
-                      ? `${villageData.consultant.firstName} ${villageData.consultant.lastName}` 
-                      : 'Village Consultant'}
-                  </h4>
-                  <p className="text-gray-700 leading-relaxed px-2">
-                    {villageData.consultant.description}
-                  </p>
-                </div>
-                <div className="space-y-4 pt-2 flex flex-col items-center">
-                  <h5 className="text-lg font-semibold text-black mb-2">Book a Tour</h5>
-                  <a 
-                    href={villageData.consultant.phone ? `tel:${villageData.consultant.phone.replace(/\s/g, '')}` : "tel:1300262626"}
-                    className={`inline-flex items-center justify-center font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none cursor-pointer disabled:cursor-not-allowed hover:-translate-y-0.5 shadow-md hover:shadow-lg h-10 px-6 text-base rounded-lg text-white hover:bg-orange-600 ${villageData.consultant.firstName ? 'bg-orange-500' : 'bg-white border border-black text-black hover:bg-gray-100'}`}
-                  >
-                    {villageData.consultant.phone || '1300 26 26 26'}
-                  </a>
-                  <a 
-                    href={villageData.consultant.email ? `mailto:${villageData.consultant.email}?subject=Enquiry about ${villageData.name} - Tour and Information Request` : "mailto:contact@amanaliving.com.au?subject=Enquiry about Retirement Village - Tour and Information Request"} 
-                    className="text-black hover:underline flex items-center justify-center gap-2 py-2"
-                  >
-                    {villageData.consultant.email || 'contact@amanaliving.com.au'}
-                  </a>
-                </div>
-              </div>
-            </div>
+            <ConsultantPanel 
+              consultant={villageData.consultant} 
+              villageName={villageData.name} 
+            />
           </div>
         </div>
       </section>
@@ -349,7 +312,7 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
       </section>
 
       {/* Tour Booking Section */}
-      <section className="py-16 px-4 bg-gray-800 text-white">
+      <section className="py-16 px-4 text-white" style={{ backgroundColor: '#004676' }}>
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
@@ -361,20 +324,11 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
               </p>
             </div>
 
-            <div className="space-y-4">
-              <div className="bg-gray-200 rounded-lg flex items-center justify-center min-h-[300px]">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-gray-400 rounded flex items-center justify-center mx-auto mb-4">
-                    <span className="text-gray-600 text-2xl">🏞️</span>
-                  </div>
-                  <p className="text-gray-600 text-sm">Image placeholder</p>
-                </div>
-              </div>
-              
-              <Button className="w-full bg-white text-gray-800 hover:bg-gray-100">
-                {villageData.consultant.firstName ? `Book a tour with ${villageData.consultant.firstName}` : 'Book a tour today'}
-              </Button>
-            </div>
+            <ConsultantPanel 
+              consultant={villageData.consultant} 
+              villageName={villageData.name}
+              className="bg-blue-900 border-gray-600"
+            />
           </div>
         </div>
       </section>

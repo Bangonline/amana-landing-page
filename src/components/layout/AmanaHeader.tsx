@@ -122,14 +122,6 @@ export function AmanaHeader() {
               </Link>
             </div>
 
-            {/* Right side - Search and Call Button */}
-            <div className="hidden lg:flex items-center space-x-4">
-
-              <a href="tel:1300262626" className="inline-flex items-center justify-center font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none cursor-pointer disabled:cursor-not-allowed hover:-translate-y-0.5 shadow-md hover:shadow-lg h-10 px-6 text-base rounded-lg bg-orange-500 text-white hover:bg-orange-600">
-                Call us
-              </a>
-            </div>
-
             {/* Mobile Call Button */}
             <div className="sm:hidden">
               <a href="tel:1300262626" className="inline-flex items-center justify-center font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none cursor-pointer disabled:cursor-not-allowed hover:-translate-y-0.5 shadow-md hover:shadow-lg h-8 px-3 text-sm rounded-md bg-orange-500 text-white hover:bg-orange-600">

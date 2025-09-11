@@ -204,7 +204,7 @@ export function ImageGallery({
                 const newIndex = selectedImage > 0 ? selectedImage - 1 : images.length - 1
                 handleImageChange(newIndex)
               }}
-              className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 active:bg-black/80 text-white rounded-full p-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-200 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 touch-manipulation cursor-pointer"
+              className="absolute left-2 top-1/2 -translate-y-1/2 bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white rounded-full p-2 opacity-100 transition-all duration-200 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 touch-manipulation cursor-pointer"
               aria-label="Previous image"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -218,7 +218,7 @@ export function ImageGallery({
                 const newIndex = selectedImage < images.length - 1 ? selectedImage + 1 : 0
                 handleImageChange(newIndex)
               }}
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 active:bg-black/80 text-white rounded-full p-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-200 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 touch-manipulation cursor-pointer"
+              className="absolute right-2 top-1/2 -translate-y-1/2 bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white rounded-full p-2 opacity-100 transition-all duration-200 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 touch-manipulation cursor-pointer"
               aria-label="Next image"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
