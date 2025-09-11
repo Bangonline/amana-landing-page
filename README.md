@@ -177,9 +177,26 @@ The project is optimized for Vercel deployment with Edge Config:
 EDGE_CONFIG="ecfg_your_edge_config_id"
 VERCEL_TOKEN="your_vercel_token"
 
-# Optional: Secure cron jobs
-CRON_SECRET="your_random_secret"
+# Required: Secure cron jobs (configured as Vercel secret)
+CRON_SECRET="@cron_secret"  # References Vercel secret named "cron_secret"
 ```
+
+### Setting Up CRON_SECRET:
+
+1. **Generate a secure random secret:**
+   ```bash
+   openssl rand -hex 32
+   ```
+
+2. **Add to Vercel project:**
+   - Go to Vercel Dashboard → Project Settings → Environment Variables
+   - Add a new secret with name: `cron-secret` (without @ symbol)
+   - Use the generated random string as the value
+   - Select all environments (Production, Preview, Development)
+
+3. **Verify configuration:**
+   - The `vercel.json` file references this secret as `@cron-secret`
+   - This ensures secure authentication for cron job endpoints
 
 ### ⚠️ Important: Vercel Plan Limitations
 
@@ -193,6 +210,7 @@ This project includes advanced features that have different capabilities based o
 | **Enterprise** | 100 jobs max | Unlimited frequency |
 
 **Current Configuration**: 
+- **CRON_SECRET**: ✅ Properly configured as Vercel secret for secure authentication
 - **Production**: Cron jobs are **disabled** in `vercel.json` to ensure deployment on Hobby plan
 - **Originally designed**: Every 6 hours sync (`0 */6 * * *`) - requires Pro plan or higher
 
