@@ -5,6 +5,7 @@ import { Testimonial } from '@/components/ui/Testimonial'
 import { LocationCard } from '@/components/ui/LocationCard'
 import { ServicesGrid } from '@/components/ui/ServicesGrid'
 import { FAQAccordion } from '@/components/ui/FAQAccordion'
+import { AmanaHeader } from '@/components/layout/AmanaHeader'
 
 export default function Location2Page() {
   const amenities = [
@@ -99,6 +100,7 @@ export default function Location2Page() {
 
   return (
     <div className="min-h-screen bg-white">
+      <AmanaHeader />
       {/* Hero Section */}
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">

@@ -6,6 +6,7 @@ import { LocationCard } from '@/components/ui/LocationCard'
 import { ServicesGrid } from '@/components/ui/ServicesGrid'
 import { FAQAccordion } from '@/components/ui/FAQAccordion'
 import { ImageGallery } from '@/components/ui/ImageGallery'
+import { AmanaHeader } from '@/components/layout/AmanaHeader'
 
 export default function Location1Page() {
   const galleryImages = [
@@ -110,6 +111,7 @@ export default function Location1Page() {
 
   return (
     <div className="min-h-screen bg-white">
+      <AmanaHeader />
       {/* Hero Section */}
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
