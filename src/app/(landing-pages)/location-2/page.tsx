@@ -1,3 +1,5 @@
+'use client'
+
 import { AmenityTag } from '@/components/ui/AmenityTag'
 import { Button } from '@/components/ui/Button'
 import { PropertyCard } from '@/components/ui/PropertyCard'
@@ -6,95 +8,69 @@ import { LocationCard } from '@/components/ui/LocationCard'
 import { ServicesGrid } from '@/components/ui/ServicesGrid'
 import { FAQAccordion } from '@/components/ui/FAQAccordion'
 import { AmanaHeader } from '@/components/layout/AmanaHeader'
+import { useVillageProperties } from '@/hooks/useProperties'
 
 export default function Location2Page() {
-  const amenities = [
-    'Wellness Center',
-    'Outdoor Patio', 
-    'Computer Lab',
-    'Barber Shop',
-    'Craft Room'
-  ]
+  // Fetch properties dynamically from Edge Config for Collier Park Village (riverside)
+  const { properties, loading, error } = useVillageProperties('riverside');
 
-  const properties = [
-    {
-      title: 'APARTMENT 205',
-      price: '$420,000',
-      beds: 2,
-      baths: 2,
-      carSpaces: 1,
-      description: 'Modern apartment with stunning views and premium finishes. Features an open-plan living area and private balcony.',
-      isSold: false
-    },
-    {
-      title: 'VILLA 8',
-      price: '$850,000',
-      beds: 3,
-      baths: 2,
-      carSpaces: 2,
-      description: 'Spacious villa with garden views and modern amenities. Perfect for those who want extra space and privacy.',
-      isSold: false
-    },
-    {
-      title: 'APARTMENT 401',
-      price: '$380,000',
-      beds: 1,
-      baths: 1,
-      carSpaces: 1,
-      description: 'Cozy apartment ideal for downsizing. Features modern kitchen and bathroom with easy maintenance.',
-      isSold: true
-    }
+  const amenities = [
+    'Community Centre',
+    'Hairdresser', 
+    'Pet Friendly',
+    'Library',
+    'Two Meeting Venues'
   ]
 
   const nearbyAmenities = [
-    { name: 'Medical Center', distance: '0.8 km' },
-    { name: 'Hospital', distance: '6.2 kms' },
-    { name: 'Shopping Mall', distance: '1.2 km' },
-    { name: 'Bus Station', distance: '0.5 km' },
-    { name: 'Train Station', distance: '2.1 km' },
-    { name: 'City Center', distance: '8.5 km' }
+    { name: 'Medical Centre', distance: '1.2 km' },
+    { name: 'Hospital', distance: '5.8 kms' },
+    { name: 'Shopping Centre', distance: '0.9 km' },
+    { name: 'Bus Stop', distance: '0.3 km' },
+    { name: 'Train Station', distance: '2.5 km' },
+    { name: 'Perth CBD', distance: '9.2 km' }
   ]
 
   const lifestyleServices = [
-    { name: 'Wellness Center', icon: '🧘' },
-    { name: 'Outdoor Patio', icon: '🌿' },
-    { name: 'Computer Lab', icon: '💻' },
-    { name: 'Barber Shop', icon: '✂️' },
-    { name: 'Craft Room', icon: '🎨' },
-    { name: 'Walking Paths', icon: '🚶' },
-    { name: 'Café', icon: '☕' },
-    { name: 'Meditation Garden', icon: '🌸' }
+    { name: 'Community Centre', iconSvg: '/images/icons/Community.svg' },
+    { name: 'Hairdresser', iconSvg: '/images/icons/Hair-salon.svg' },
+    { name: 'Library', icon: '📚' },
+    { name: 'Social Activities', iconSvg: '/images/icons/Social-Outings-purple.svg' },
+    { name: 'Exercise Classes', icon: '🏃' },
+    { name: 'Cards & Bingo', icon: '🃏' },
+    { name: 'Afternoon Teas', icon: '☕' },
+    { name: 'Movie Library', icon: '🎬' }
   ]
 
   const additionalServices = [
-    { name: 'Housekeeping', icon: '🧹' },
-    { name: 'Meal Service', icon: '🍽️' },
-    { name: 'Personal Care', icon: '👥' },
-    { name: 'Nutritionist', icon: '🥗' },
-    { name: 'Laundry Service', icon: '👕' },
-    { name: 'Social Activities', icon: '🎉' }
+    { name: 'Cleaning', iconSvg: '/images/icons/cleaning.svg' },
+    { name: 'Meals', iconSvg: '/images/icons/cooking.svg' },
+    { name: 'Personal Care', iconSvg: '/images/icons/personal-care.svg' },
+    { name: 'Dietitian', iconSvg: '/images/icons/Dietitian-purple.svg' },
+    { name: 'Laundry', iconSvg: '/images/icons/laundry.svg' },
+    { name: 'Social Outings', iconSvg: '/images/icons/Social-Outings-purple.svg' }
   ]
 
   const faqItems = [
     {
-      question: 'What makes this location special?',
-      answer: 'Our second location offers a unique blend of modern amenities and peaceful surroundings. With state-of-the-art facilities and a focus on wellness, it&apos;s designed for active seniors who want to maintain an independent lifestyle while having access to comprehensive support services.'
+      question: 'Can I talk to someone about Amana Living Retirement Villages?',
+      answer: 'We welcome phone enquiries. Please call us on 1300 26 26 26 and talk to our friendly Customer Service Centre staff who can put you through to the best person in our retirement village team. We have a wide range of independent living options available to suit all financial situations, please call to discuss.'
     },
     {
-      question: 'What types of accommodation are available?',
-      answer: 'We offer a variety of accommodation options including modern apartments and spacious villas. All units are designed with accessibility in mind and feature contemporary finishes and low-maintenance living.'
+      question: 'What style of retirement living does Amana Living offer?',
+      answer: 'Amana Living offers different types of housing for over-55s: Lease-for-life where you purchase an exclusive lease and pay a daily operating fee, Non-refundable ingoing contribution and pay a daily operating fee, and Rental units where you pay a daily operating fee and rent in lieu of a deposit for security of long term accommodation.'
     },
     {
-      question: 'What activities and services are included?',
-      answer: 'Residents enjoy access to our wellness center, outdoor activities, computer lab, and various social programs. We also offer additional services like housekeeping, meal services, and personal care for those who need extra support.'
+      question: 'How much will it cost me to live in a retirement village?',
+      answer: 'The lease prices for units in our lease-for-life villages are based on current market conditions. In addition, a modest daily operating fee is charged to cover the cost of external maintenance and shared facilities. When residents leave the village, a deferred management fee is deducted from the sale, allowing you to enjoy the benefits of refurbishment when you move in.'
     },
     {
-      question: 'How do I arrange a visit?',
-      answer: 'Contact our friendly team to schedule a personalized tour. We&apos;ll show you around the facilities, introduce you to the community, and answer any questions you may have about life at our village.'
+      question: 'Why would I choose an Amana Living retirement village?',
+      answer: 'Amana Living has a wide variety of retirement villages across Western Australia. Our villages aim to give you peace of mind, a great lifestyle and financial security. We provide the services that help you stay in your Amana Living home as your needs change. You get to live alongside like-minded people, without the daily worries of home maintenance and gardening.'
     },
     {
-      question: 'What is the application process?',
-      answer: 'The application process is straightforward. After your tour, we&apos;ll provide you with all the necessary information and guide you through the application. Our team is here to help make the transition as smooth as possible.'
+      question: 'How can I find a retirement village that\'s right for me?',
+      answer: 'When you choose a home, you\'re choosing a way of life that will be meaningful to you and reflect your individual lifestyle. We want to help you find the right home in the right location, with the support and surroundings you want. Please explore our retirement village section or give our Customer Service Team a call (1300 26 26 26).'
     }
   ]
 
@@ -109,12 +85,12 @@ export default function Location2Page() {
             <div className="space-y-6">
               <div>
                 <h1 className="text-4xl md:text-5xl font-bold text-black mb-4">
-                  Riverside Village
+                  Collier Park Village
                 </h1>
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  Discover modern retirement living in a beautiful riverside setting. Our second location 
-                  combines contemporary amenities with the tranquility of nature, creating the perfect 
-                  environment for your golden years.
+                  Peace of mind, independence and the comfort of belonging to a warm, caring community 
+                  are hallmarks of the Collier Park Village lifestyle. Experience exclusive independent 
+                  living for individuals aged 55 and above in beautiful Como.
                 </p>
               </div>
 
@@ -170,26 +146,26 @@ export default function Location2Page() {
                   VILLAGE OVERVIEW
                 </h2>
                 <h3 className="text-2xl md:text-3xl font-bold text-black mb-4">
-                  Modern living by the river.
+                  Nestled in Como, surrounded by beauty.
                 </h3>
                 <div className="space-y-4 text-gray-700 leading-relaxed">
                   <p>
-                    Riverside Village offers a contemporary approach to retirement living, set in a 
-                    beautiful location with stunning river views. Our modern facilities and innovative 
-                    design create an environment that promotes wellness, social connection, and 
-                    independent living.
+                    Nestled in Como, Collier Park Village provides exclusive independent living accommodation 
+                    for individuals aged 55 and above, surrounded by beautifully landscaped gardens. Our 
+                    village boasts 169 two-bedroom independent villas, along with community and leisure 
+                    centres, all designed to enhance your living experience. We are also pet friendly!
                   </p>
                   <p>
-                    Designed specifically for active seniors, our village features state-of-the-art 
-                    amenities including a wellness center, outdoor recreation areas, and technology 
-                    facilities. Residents enjoy a vibrant community atmosphere with regular social 
-                    activities, educational programs, and wellness initiatives.
+                    Collier Park Village offers two meeting venues on-site for our residents' convenience. 
+                    The Community Centre, available to residents and their families, is a charming and 
+                    well-equipped space for social gatherings and community events. Our village thrives on 
+                    a vibrant social committee and the generous volunteerism of residents.
                   </p>
                   <p>
-                    Our commitment to excellence extends to every aspect of village life. From 
-                    beautifully designed living spaces to comprehensive support services, we ensure 
-                    that residents can enjoy their retirement years with confidence, comfort, and 
-                    peace of mind.
+                    Enjoy a diverse range of activities and events such as cards, bingo, afternoon teas, 
+                    and exercise classes, all held exclusively for our residents' enjoyment in the Community 
+                    Centre. Additionally, our comprehensive library offers a wide selection of movies for 
+                    borrowing, providing ample opportunities for relaxation and entertainment.
                   </p>
                 </div>
               </div>
@@ -201,17 +177,18 @@ export default function Location2Page() {
                 <div className="w-24 h-24 bg-gray-200 rounded-full mx-auto flex items-center justify-center">
                   <span className="text-gray-600 text-2xl">👨</span>
                 </div>
-                <h4 className="text-xl font-bold text-black">Michael Chen</h4>
+                <h4 className="text-xl font-bold text-black">Village Consultant</h4>
                 <p className="text-gray-700">
-                  Ready to explore Riverside Village? Contact Michael, our dedicated consultant, 
-                  to learn more about our modern facilities and arrange a personalized tour.
+                  Interested in finding out more information or booking a tour of Collier Park Village? 
+                  Get in touch with our friendly consultant to learn more about our beautiful 
+                  village and arrange a personalized tour.
                 </p>
                 <div className="space-y-3">
                   <Button className="w-full bg-white border border-black text-black hover:bg-gray-100">
-                    📞 Call Michael to book a tour
+                    📞 Call 0459 819 169 to book a tour
                   </Button>
                   <a href="#" className="block text-black hover:underline flex items-center justify-center gap-1">
-                    Email Michael
+                    Send us an email
                     <span>→</span>
                   </a>
                 </div>
@@ -229,17 +206,38 @@ export default function Location2Page() {
               AVAILABLE UNITS
             </h2>
             <h3 className="text-2xl md:text-3xl font-bold text-black mb-4">
-              View available units at Riverside Village
+              View available units at Collier Park Village
             </h3>
             <p className="text-gray-700">
-              Discover modern living options designed for your lifestyle
+              Discover the range of two-bedroom villas available
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            {properties.map((property, index) => (
-              <PropertyCard key={index} {...property} />
-            ))}
+            {loading ? (
+              // Loading state
+              Array.from({ length: 3 }, (_, index) => (
+                <div key={index} className="bg-gray-200 rounded-lg animate-pulse h-96" />
+              ))
+            ) : error ? (
+              // Error state
+              <div className="col-span-3 text-center py-8">
+                <p className="text-gray-600 mb-4">Unable to load properties: {error}</p>
+                <Button variant="outline" onClick={() => window.location.reload()}>
+                  Try Again
+                </Button>
+              </div>
+            ) : properties.length === 0 ? (
+              // No properties state
+              <div className="col-span-3 text-center py-8">
+                <p className="text-gray-600">No properties currently available</p>
+              </div>
+            ) : (
+              // Properties loaded successfully
+              properties.map((property) => (
+                <PropertyCard key={property.id} property={property} />
+              ))
+            )}
           </div>
         </div>
       </section>
@@ -249,10 +247,10 @@ export default function Location2Page() {
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <Testimonial
-              quote="Riverside Village has exceeded all my expectations. The modern facilities, friendly community, and beautiful surroundings make every day enjoyable. I feel like I'm living in a resort!"
-              author="Robert Chen"
+              quote="Moving to Collier Park has been so amazing. The community is wonderful and the amenities are so enjoyable. It's close to shops and transport - I couldn't ask for anything more. The beautiful gardens make it feel like home."
+              author="Margaret Wilson"
               role="Resident"
-              location="Riverside Village"
+              location="Collier Park Village"
               rating={5}
             />
             
@@ -272,10 +270,13 @@ export default function Location2Page() {
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
           <LocationCard
-            title="Prime location with river views"
-            description="Riverside Village is perfectly positioned to offer the best of both worlds - peaceful riverside living with easy access to urban amenities and services."
-            address="45 River Road, Riverside, WA 6020"
+            title="Close to everything in Como"
+            description="Collier Park Village is perfectly positioned in Como, offering peaceful village living with easy access to shopping centres, medical facilities, and public transport."
+            address="16 Morrison Street, Como WA 6152"
             amenities={nearbyAmenities}
+            latitude={-31.9935}
+            longitude={115.8589}
+            mapTitle="Collier Park Village"
           />
         </div>
       </section>
@@ -285,8 +286,8 @@ export default function Location2Page() {
         <div className="max-w-6xl mx-auto">
           <ServicesGrid
             title="LIFESTYLE & SERVICES"
-            subtitle="Modern amenities for active living"
-            description="Our comprehensive range of services and facilities are designed to enhance your daily life and support your wellness journey."
+            subtitle="A range of activities and services"
+            description="Each Village offers a unique range of activities and services for you to enjoy."
             services={lifestyleServices}
           />
         </div>
@@ -305,8 +306,8 @@ export default function Location2Page() {
                   Enhance your experience
                 </h3>
                 <p className="text-gray-700 mb-6">
-                  Beyond our standard amenities, Riverside Village offers a comprehensive range of 
-                  additional services to support your lifestyle and independence:
+                  Beyond the standard services at Collier Park Village, there are a number of 
+                  additional options to purchase including:
                 </p>
               </div>
 
@@ -348,7 +349,7 @@ export default function Location2Page() {
                   FAQs
                 </h2>
                 <p className="text-gray-700 mb-6">
-                  Have questions about Riverside Village? We&apos;re here to help. Feel free to contact us by clicking the button below.
+                  Have questions about Collier Park Village? We&apos;re here to help. Feel free to contact us by clicking the button below.
                 </p>
                 <Button variant="outline" className="border-black text-black hover:bg-gray-100">
                   📞 Get in touch
@@ -369,10 +370,10 @@ export default function Location2Page() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <h2 className="text-3xl md:text-4xl font-bold">
-                Book a tour of Riverside Village
+                Book a tour of Collier Park Village
               </h2>
               <p className="text-lg text-gray-300">
-                Experience modern retirement living firsthand. Schedule your personalized tour today.
+                Interested to view the village in person? Book a tour today.
               </p>
             </div>
 
@@ -387,7 +388,7 @@ export default function Location2Page() {
               </div>
               
               <Button className="w-full bg-white text-gray-800 hover:bg-gray-100">
-                Book a tour with Michael
+                Book a tour today
               </Button>
             </div>
           </div>

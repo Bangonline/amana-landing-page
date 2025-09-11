@@ -1,3 +1,5 @@
+'use client'
+
 import { AmenityTag } from '@/components/ui/AmenityTag'
 import { Button } from '@/components/ui/Button'
 import { PropertyCard } from '@/components/ui/PropertyCard'
@@ -7,8 +9,12 @@ import { ServicesGrid } from '@/components/ui/ServicesGrid'
 import { FAQAccordion } from '@/components/ui/FAQAccordion'
 import { ImageGallery } from '@/components/ui/ImageGallery'
 import { AmanaHeader } from '@/components/layout/AmanaHeader'
+import { useVillageProperties } from '@/hooks/useProperties'
 
 export default function Location1Page() {
+  // Fetch properties dynamically from Edge Config
+  const { properties, loading, error } = useVillageProperties('moline');
+
   const galleryImages = [
     'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/moline-village/0550.jpg',
     'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/moline-village/0614.jpg',
@@ -27,36 +33,6 @@ export default function Location1Page() {
     'Games room'
   ]
 
-  const properties = [
-    {
-      title: 'APARTMENT 308',
-      price: '$360,000',
-      beds: 2,
-      baths: 1,
-      carSpaces: 1,
-      description: 'Freshly painted with new flooring, open plan layout with 2 Balconies providing plenty of natural light and fresh air.',
-      isSold: false
-    },
-    {
-      title: 'VILLA 14',
-      price: '$790,000',
-      beds: 2,
-      baths: 1,
-      carSpaces: 2,
-      description: 'This 2 Bed plus Study Villa with 1 1/2 Bathrooms wont last long! With fresh paint & flooring, modern appliances and a huge double garage.',
-      isSold: true
-    },
-    {
-      title: 'APARTMENT 706',
-      price: '$305,000',
-      beds: 1,
-      baths: 1,
-      carSpaces: 1,
-      description: 'With excellent views from your private balcony this apartment wont last long. Perfect for downsizing with easy maintenance.',
-      isSold: true
-    }
-  ]
-
   const nearbyAmenities = [
     { name: 'Medical Surgery', distance: '1 km' },
     { name: 'Hospital', distance: '8.6 kms' },
@@ -67,23 +43,23 @@ export default function Location1Page() {
   ]
 
   const lifestyleServices = [
-    { name: 'Swimming Pool', icon: '🏊' },
+    { name: 'Swimming Pool', iconSvg: '/images/icons/bathtub.svg' },
     { name: 'Gymnasium', icon: '💪' },
     { name: 'Bowling Green', icon: '🎳' },
     { name: 'Mini Golf', icon: '⛳' },
     { name: 'Games Room', icon: '🎮' },
-    { name: 'Community Centre', icon: '🏛️' },
-    { name: 'Hairdresser', icon: '💇' },
-    { name: 'Transport', icon: '🚌' }
+    { name: 'Community Centre', iconSvg: '/images/icons/Community.svg' },
+    { name: 'Hairdresser', iconSvg: '/images/icons/Hair-salon.svg' },
+    { name: 'Transport', iconSvg: '/images/icons/car.svg' }
   ]
 
   const additionalServices = [
-    { name: 'Cleaning', icon: '🧹' },
-    { name: 'Meals', icon: '🍽️' },
-    { name: 'Personal care', icon: '👥' },
-    { name: 'Dietitian', icon: '🥗' },
-    { name: 'Laundry', icon: '👕' },
-    { name: 'Social outings', icon: '🎉' }
+    { name: 'Cleaning', iconSvg: '/images/icons/cleaning.svg' },
+    { name: 'Meals', iconSvg: '/images/icons/cooking.svg' },
+    { name: 'Personal care', iconSvg: '/images/icons/personal-care.svg' },
+    { name: 'Dietitian', iconSvg: '/images/icons/Dietitian-purple.svg' },
+    { name: 'Laundry', iconSvg: '/images/icons/laundry.svg' },
+    { name: 'Social outings', iconSvg: '/images/icons/Social-Outings-purple.svg' }
   ]
 
   const faqItems = [
@@ -232,9 +208,30 @@ export default function Location1Page() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            {properties.map((property, index) => (
-              <PropertyCard key={index} {...property} />
-            ))}
+            {loading ? (
+              // Loading state
+              Array.from({ length: 3 }, (_, index) => (
+                <div key={index} className="bg-gray-200 rounded-lg animate-pulse h-96" />
+              ))
+            ) : error ? (
+              // Error state
+              <div className="col-span-3 text-center py-8">
+                <p className="text-gray-600 mb-4">Unable to load properties: {error}</p>
+                <Button variant="outline" onClick={() => window.location.reload()}>
+                  Try Again
+                </Button>
+              </div>
+            ) : properties.length === 0 ? (
+              // No properties state
+              <div className="col-span-3 text-center py-8">
+                <p className="text-gray-600">No properties currently available</p>
+              </div>
+            ) : (
+              // Properties loaded successfully
+              properties.map((property) => (
+                <PropertyCard key={property.id} property={property} />
+              ))
+            )}
           </div>
         </div>
       </section>
@@ -271,6 +268,9 @@ export default function Location1Page() {
             description="Moline Village is spectacularly located in south Karrinyup, walking distance from the beach, parks, public transport and Karrinyup Shopping Centre."
             address="1 Jeanes Road, Karrinyup, WA 6018"
             amenities={nearbyAmenities}
+            latitude={-31.8476}
+            longitude={115.7780}
+            mapTitle="Moline Village"
           />
         </div>
       </section>
