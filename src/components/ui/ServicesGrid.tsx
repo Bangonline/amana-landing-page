@@ -41,17 +41,17 @@ export function ServicesGrid({
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
         {services.map((service, index) => (
           <div key={index} className="text-center">
-            <div className="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center mx-auto mb-3">
+            <div className="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center mx-auto mb-3">
               {service.iconSvg ? (
                 <Image
                   src={service.iconSvg}
                   alt={service.name}
-                  width={24}
-                  height={24}
-                  className="w-6 h-6"
+                  width={32}
+                  height={32}
+                  className="w-8 h-8"
                 />
               ) : (
-                <span className="text-gray-600 text-xl">
+                <span className="text-gray-600 text-2xl">
                   {service.icon || '📦'}
                 </span>
               )}

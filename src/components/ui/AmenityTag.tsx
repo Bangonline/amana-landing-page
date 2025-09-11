@@ -1,11 +1,11 @@
 import { cn } from '@/lib/utils'
 
 interface AmenityTagProps {
-  children: React.ReactNode
+  label: string
   className?: string
 }
 
-export function AmenityTag({ children, className }: AmenityTagProps) {
+export function AmenityTag({ label, className }: AmenityTagProps) {
   return (
     <span
       className={cn(
@@ -13,7 +13,7 @@ export function AmenityTag({ children, className }: AmenityTagProps) {
         className
       )}
     >
-      {children}
+      {label}
     </span>
   )
 }
