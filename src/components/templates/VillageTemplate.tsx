@@ -1,5 +1,7 @@
 'use client'
 
+import { useState } from 'react'
+import Image from 'next/image'
 import { AmenityTag } from '@/components/ui/AmenityTag'
 import { Button } from '@/components/ui/Button'
 import { PropertyCard } from '@/components/ui/PropertyCard'
@@ -21,8 +23,22 @@ interface VillageTemplateProps {
 }
 
 export function VillageTemplate({ villageData }: VillageTemplateProps) {
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0)
+  
   // Fetch properties dynamically from Edge Config
   const { properties, loading, error } = useVillageProperties(villageData.propertyType as VillageSlug);
+
+  const handlePreviousImage = () => {
+    setSelectedImageIndex(prev => 
+      prev > 0 ? prev - 1 : villageData.galleryImages.length - 1
+    )
+  }
+
+  const handleNextImage = () => {
+    setSelectedImageIndex(prev => 
+      prev < villageData.galleryImages.length - 1 ? prev + 1 : 0
+    )
+  }
 
   return (
     <div className="min-h-screen bg-white">
@@ -59,7 +75,19 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
                   <Button className="bg-black text-white hover:bg-gray-800">
                     Make an enquiry
                   </Button>
-                  <Button variant="outline" className="border-black text-black hover:bg-gray-100">
+                  <Button 
+                    variant="outline" 
+                    className="border-white text-white hover:bg-white hover:text-black cursor-pointer"
+                    onClick={() => {
+                      const element = document.getElementById('available-units');
+                      if (element) {
+                        element.scrollIntoView({ 
+                          behavior: 'smooth',
+                          block: 'start'
+                        });
+                      }
+                    }}
+                  >
                     View available units
                   </Button>
                 </div>
@@ -67,29 +95,28 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
 
               {/* Right Column - Image Gallery */}
               <div className="space-y-4">
-                {/* Main Image */}
-                <div className="aspect-[4/3] rounded-lg overflow-hidden relative">
-                  <ImageGallery images={villageData.galleryImages} />
+                {/* Main Image with Navigation */}
+                <div className="relative">
+                  <ImageGallery 
+                    images={villageData.galleryImages} 
+                    aspectRatio="4/3"
+                    showThumbnails={true}
+                    selectedIndex={selectedImageIndex}
+                    onImageChange={setSelectedImageIndex}
+                  />
                   {/* Navigation arrows */}
-                  <button className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-orange-500 hover:bg-orange-600 text-white rounded-full flex items-center justify-center z-10">
+                  <button 
+                    onClick={handlePreviousImage}
+                    className="absolute left-4 top-[calc(50%-60px)] -translate-y-1/2 w-10 h-10 bg-orange-500 hover:bg-orange-600 text-white rounded-full flex items-center justify-center z-10 cursor-pointer transition-colors"
+                  >
                     ←
                   </button>
-                  <button className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-orange-500 hover:bg-orange-600 text-white rounded-full flex items-center justify-center z-10">
+                  <button 
+                    onClick={handleNextImage}
+                    className="absolute right-4 top-[calc(50%-60px)] -translate-y-1/2 w-10 h-10 bg-orange-500 hover:bg-orange-600 text-white rounded-full flex items-center justify-center z-10 cursor-pointer transition-colors"
+                  >
                     →
                   </button>
-                </div>
-                
-                {/* Thumbnail Row */}
-                <div className="grid grid-cols-5 gap-2">
-                  {villageData.galleryImages.slice(0, 5).map((image, index) => (
-                    <div key={index} className="aspect-square rounded-lg overflow-hidden bg-gray-200">
-                      <img 
-                        src={image} 
-                        alt={`${villageData.name} thumbnail ${index + 1}`}
-                        className="w-full h-full object-cover hover:opacity-80 transition-opacity cursor-pointer"
-                      />
-                    </div>
-                  ))}
                 </div>
               </div>
             </div>
@@ -98,7 +125,7 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
       </HeroBackground>
 
       {/* Village Overview Section */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-16 px-4" style={{ backgroundColor: '#BED1E3' }}>
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12">
             <div className="space-y-6">
@@ -142,10 +169,16 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
                   </p>
                 </div>
                 <div className="space-y-4 pt-2">
-                  <Button className={`w-full text-white border-0 py-3 ${villageData.consultant.name ? 'bg-amana-orange-500 hover:bg-amana-orange-600' : 'bg-white border border-black text-black hover:bg-gray-100'}`}>
+                  <a 
+                    href={villageData.consultant.phone ? `tel:${villageData.consultant.phone.replace(/\s/g, '')}` : "tel:1300262626"}
+                    className={`w-full text-white border-0 py-3 rounded transition-colors flex items-center justify-center gap-2 ${villageData.consultant.name ? 'bg-amana-orange-500 hover:bg-amana-orange-600' : 'bg-white border border-black text-black hover:bg-gray-100'}`}
+                  >
                     📞 {villageData.consultant.phone ? `Call ${villageData.consultant.name} to book a tour` : 'Call to book a tour'}
-                  </Button>
-                  <a href="#" className="block text-black hover:underline flex items-center justify-center gap-2 py-2">
+                  </a>
+                  <a 
+                    href={villageData.consultant.email ? `mailto:${villageData.consultant.email}?subject=Enquiry about ${villageData.name} - Tour and Information Request` : "mailto:contact@amanaliving.com.au?subject=Enquiry about Retirement Village - Tour and Information Request"} 
+                    className="block text-black hover:underline flex items-center justify-center gap-2 py-2"
+                  >
                     {villageData.consultant.email ? `Email ${villageData.consultant.name}` : 'Send us an email'}
                     <span>→</span>
                   </a>
@@ -157,7 +190,7 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
       </section>
 
       {/* Available Units Section */}
-      <section className="py-16 px-4">
+      <section id="available-units" className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-sm font-bold uppercase text-gray-500 mb-2">
@@ -201,7 +234,7 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
       </section>
 
       {/* Testimonial Section */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-16 px-4" style={{ backgroundColor: '#BED1E3' }}>
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <Testimonial
@@ -240,7 +273,7 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
       </section>
 
       {/* Lifestyle & Services Section */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-16 px-4" style={{ backgroundColor: '#BED1E3' }}>
         <div className="max-w-6xl mx-auto">
           <ServicesGrid
             title="LIFESTYLE & SERVICES"
@@ -305,7 +338,7 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-16 px-4" style={{ backgroundColor: '#BED1E3' }}>
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12">
             <div className="space-y-6">
