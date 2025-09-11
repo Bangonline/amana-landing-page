@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from './Card'
+import { Button } from './Button'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
 import { Property } from '@/types/property'
@@ -59,7 +60,7 @@ export function PropertyCard(props: CombinedPropertyCardProps) {
   }
 
   return (
-    <Card className={cn('relative overflow-hidden', className)}>
+    <Card className={cn('relative overflow-hidden flex flex-col', className)}>
       {(isSold || statusMessage) && (
         <div className="absolute top-4 left-4 z-10 bg-gray-800 text-white px-3 py-1 text-sm font-medium rounded">
           {statusMessage || 'SOLD'}
@@ -95,7 +96,7 @@ export function PropertyCard(props: CombinedPropertyCardProps) {
         <div className="text-2xl font-bold text-black">{price}</div>
       </CardHeader>
       
-      <CardContent className="pt-0">
+      <CardContent className="pt-0 flex flex-col h-full">
         <div className="flex items-center gap-4 mb-3 text-sm text-gray-600">
           <div className="flex items-center gap-1">
             <span>🛏️</span>
@@ -111,17 +112,21 @@ export function PropertyCard(props: CombinedPropertyCardProps) {
           </div>
         </div>
         
-        <p className="text-sm text-gray-700 mb-4">{description}</p>
+        <p className="text-sm text-gray-700 mb-4 flex-1">{description}</p>
         
-        <a 
-          href={detailsUrl || "#"} 
-          className="text-sm font-medium text-black hover:underline flex items-center gap-1"
-          target={detailsUrl ? "_blank" : undefined}
-          rel={detailsUrl ? "noopener noreferrer" : undefined}
+        <Button 
+          onClick={() => {
+            if (detailsUrl) {
+              window.open(detailsUrl, '_blank', 'noopener,noreferrer');
+            }
+          }}
+          variant="primary"
+          size="sm"
+          className="w-full mt-auto"
+          disabled={!detailsUrl}
         >
           View package details
-          <span>→</span>
-        </a>
+        </Button>
       </CardContent>
     </Card>
   )

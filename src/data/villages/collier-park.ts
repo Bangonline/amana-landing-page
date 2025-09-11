@@ -63,12 +63,12 @@ export const collierParkData: VillageData = {
     mapTitle: 'Collier Park Village'
   },
   nearbyAmenities: [
-    { name: 'Medical Centre', distance: '1.2 km', iconSvg: '/images/icons/medical-surgery.svg' },
-    { name: 'Hospital', distance: '5.8 km', iconSvg: '/images/icons/hospital.svg' },
-    { name: 'Shopping Centre', distance: '0.9 km', iconSvg: '/images/icons/shopping-centre.svg' },
-    { name: 'Bus Stop', distance: '0.3 km', iconSvg: '/images/icons/bus.svg' },
-    { name: 'Train Station', distance: '2.5 km', iconSvg: '/images/icons/train.svg' },
-    { name: 'Perth CBD', distance: '9.2 km', iconSvg: '/images/icons/perth.svg' }
+    { name: 'Medical Centre', distance: '0.8 km', iconSvg: '/images/icons/medical-surgery.svg' },
+    { name: 'Hospital', distance: '15.0 km', iconSvg: '/images/icons/hospital.svg' },
+    { name: 'Shopping Centre', distance: '6.0 km', iconSvg: '/images/icons/shopping-centre.svg' },
+    { name: 'Bus Stop', distance: '0.1 km', iconSvg: '/images/icons/bus.svg' },
+    { name: 'Train Station', distance: '2.0 km', iconSvg: '/images/icons/train.svg' },
+    { name: 'Perth CBD', distance: '12.0 km', iconSvg: '/images/icons/perth.svg' }
   ],
   
   // Services sections

@@ -28,17 +28,6 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
   // Fetch properties dynamically from Edge Config
   const { properties, loading, error } = useVillageProperties(villageData.propertyType as VillageSlug);
 
-  const handlePreviousImage = () => {
-    setSelectedImageIndex(prev => 
-      prev > 0 ? prev - 1 : villageData.galleryImages.length - 1
-    )
-  }
-
-  const handleNextImage = () => {
-    setSelectedImageIndex(prev => 
-      prev < villageData.galleryImages.length - 1 ? prev + 1 : 0
-    )
-  }
 
   return (
     <div className="min-h-screen bg-white">
@@ -77,7 +66,14 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
                   </Button>
                   <Button 
                     variant="outline" 
-                    className="border-white text-white hover:bg-white hover:text-black cursor-pointer"
+                    className="bg-white text-black border-white hover:bg-gray-100 hover:text-black cursor-pointer transition-all duration-300"
+                    style={{ backgroundColor: 'white', color: 'black', borderColor: 'white' }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = '#f3f4f6';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = 'white';
+                    }}
                     onClick={() => {
                       const element = document.getElementById('available-units');
                       if (element) {
@@ -95,29 +91,13 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
 
               {/* Right Column - Image Gallery */}
               <div className="space-y-4">
-                {/* Main Image with Navigation */}
-                <div className="relative">
-                  <ImageGallery 
-                    images={villageData.galleryImages} 
-                    aspectRatio="4/3"
-                    showThumbnails={true}
-                    selectedIndex={selectedImageIndex}
-                    onImageChange={setSelectedImageIndex}
-                  />
-                  {/* Navigation arrows */}
-                  <button 
-                    onClick={handlePreviousImage}
-                    className="absolute left-4 top-[calc(50%-60px)] -translate-y-1/2 w-10 h-10 bg-orange-500 hover:bg-orange-600 text-white rounded-full flex items-center justify-center z-10 cursor-pointer transition-colors"
-                  >
-                    ←
-                  </button>
-                  <button 
-                    onClick={handleNextImage}
-                    className="absolute right-4 top-[calc(50%-60px)] -translate-y-1/2 w-10 h-10 bg-orange-500 hover:bg-orange-600 text-white rounded-full flex items-center justify-center z-10 cursor-pointer transition-colors"
-                  >
-                    →
-                  </button>
-                </div>
+                <ImageGallery 
+                  images={villageData.galleryImages} 
+                  aspectRatio="4/3"
+                  showThumbnails={true}
+                  selectedIndex={selectedImageIndex}
+                  onImageChange={setSelectedImageIndex}
+                />
               </div>
             </div>
           </div>
