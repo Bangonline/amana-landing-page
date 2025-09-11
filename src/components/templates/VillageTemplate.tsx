@@ -200,13 +200,15 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
               rating={villageData.testimonial.rating}
             />
             
-            <div className="bg-gray-200 rounded-lg flex items-center justify-center min-h-[300px]">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gray-400 rounded flex items-center justify-center mx-auto mb-4">
-                  <span className="text-gray-600 text-2xl">🏞️</span>
-                </div>
-                <p className="text-gray-600 text-sm">Image placeholder</p>
-              </div>
+            <div className="rounded-lg overflow-hidden min-h-[300px]">
+              <Image
+                src="/images/lady.jpg"
+                alt="Amana Living resident"
+                width={600}
+                height={400}
+                className="w-full h-full object-cover"
+                priority={false}
+              />
             </div>
           </div>
         </div>
@@ -290,13 +292,16 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
               </Button>
             </div>
 
-            <div className="bg-gray-200 rounded-lg flex items-center justify-center min-h-[400px]">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gray-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white text-2xl">▶</span>
-                </div>
-                <p className="text-gray-600 text-sm">Video placeholder</p>
-              </div>
+            <div className="relative w-full rounded-lg overflow-hidden" style={{ aspectRatio: '16/9' }}>
+              <iframe 
+                src="https://www.youtube.com/embed/ayURT1mQWNU?si=rBaJADQmU5G4rSib" 
+                title="YouTube video player" 
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerPolicy="strict-origin-when-cross-origin" 
+                allowFullScreen
+                className="absolute top-0 left-0 w-full h-full"
+              ></iframe>
             </div>
           </div>
         </div>
