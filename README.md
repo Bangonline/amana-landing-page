@@ -618,3 +618,4 @@ For questions about the project, feature requests, or technical support, please 
 - 🏞️ [Riverside Village](https://your-domain.vercel.app/location-2)
 - 🔌 [Properties API](https://your-domain.vercel.app/api/properties)
 - 🔄 [Sync Properties](https://your-domain.vercel.app/api/properties/sync)
+# Force deployment Thu Sep 11 11:35:28 AWST 2025
