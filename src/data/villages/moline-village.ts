@@ -49,9 +49,10 @@ export const molineVillageData: VillageData = {
     'Each floor has a large communal sunroom where you can unwind with a beverage and a good book or meet up with friends. Plus, there is a general store run by resident volunteers, and visiting services including hair salon, beauty therapist, massage therapist, and podiatrist. There\'s also a weekly shopper bus service to the local shopping centre.'
   ],
   consultant: {
-    name: 'Lorraine Baldwin',
+    firstName: 'Lorraine',
+    lastName: 'Baldwin',
     image: '/images/lorraine.jpeg',
-    phone: '1300 26 26 26',
+    phone: '0459 819 169',
     email: 'LBaldwin@amanaliving.com.au',
     description: 'Interested in finding our more information or booking a tour of Moline Village? Get in touch with Lorraine our friendly consultant.'
   },

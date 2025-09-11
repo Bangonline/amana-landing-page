@@ -46,9 +46,10 @@ export const collierParkData: VillageData = {
     'Enjoy a diverse range of activities and events such as cards, bingo, afternoon teas, and exercise classes, all held exclusively for our residents\' enjoyment in the Community Centre. Additionally, our comprehensive library offers a wide selection of movies for borrowing, providing ample opportunities for relaxation and entertainment.'
   ],
   consultant: {
-    name: 'Lorraine Baldwin',
+    firstName: 'Lorraine',
+    lastName: 'Baldwin',
     image: '/images/lorraine.jpeg',
-    phone: '1300 26 26 26',
+    phone: '0459 819 169',
     email: 'LBaldwin@amanaliving.com.au',
     description: 'Interested in finding out more information or booking a tour of Collier Park Village? Get in touch with Lorraine our friendly consultant to learn more about our beautiful village and arrange a personalized tour.'
   },
