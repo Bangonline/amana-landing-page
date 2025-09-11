@@ -1,10 +1,4 @@
 {
-  "crons": [
-    {
-      "path": "/api/properties/sync",
-      "schedule": "0 */6 * * *"
-    }
-  ],
   "env": {
     "CRON_SECRET": "@cron-secret"
   }
