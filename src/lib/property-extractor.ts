@@ -205,7 +205,7 @@ export class AmanaPropertyExtractor {
     // Check if the data is stored as character strings that need reconstruction
     const dataEntries = Object.entries(cacheData.data);
     const isCharacterArray = dataEntries.length > 100 && 
-                            dataEntries.every(([key, value]) => 
+                            dataEntries.every(([key, value]: [string, any]) => 
                               typeof key === 'string' && 
                               /^\d+$/.test(key) && 
                               typeof value === 'string' && 

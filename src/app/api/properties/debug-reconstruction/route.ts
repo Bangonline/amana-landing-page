@@ -17,6 +17,9 @@ export async function GET(request: NextRequest) {
 
     const html = await response.text();
     const nextDataMatch = html.match(/<script id="__NEXT_DATA__"[^>]*>(.*?)<\/script>/s);
+    if (!nextDataMatch) {
+      throw new Error('Could not find __NEXT_DATA__ in page HTML');
+    }
     const nextData = JSON.parse(nextDataMatch[1]);
     
     const urqlState = nextData.props?.urqlState;
@@ -24,7 +27,7 @@ export async function GET(request: NextRequest) {
       JSON.stringify(curr[1]).length > JSON.stringify(prev[1]).length ? curr : prev
     );
 
-    const data = largestEntry[1].data;
+    const data = (largestEntry[1] as any).data;
     const dataEntries = Object.entries(data);
     
     // Check if it's character array format
@@ -49,7 +52,7 @@ export async function GET(request: NextRequest) {
         
         // Look for property-related data
         const findPropertyData = (obj: any, path = '', depth = 0): any[] => {
-          const results = [];
+          const results: any[] = [];
           
           if (depth > 8 || !obj || typeof obj !== 'object') return results;
           

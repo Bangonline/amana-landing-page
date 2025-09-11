@@ -15,6 +15,9 @@ export async function GET(request: NextRequest) {
 
     const html = await response.text();
     const nextDataMatch = html.match(/<script id="__NEXT_DATA__"[^>]*>(.*?)<\/script>/s);
+    if (!nextDataMatch) {
+      throw new Error('Could not find __NEXT_DATA__ in page HTML');
+    }
     const nextData = JSON.parse(nextDataMatch[1]);
     
     const urqlState = nextData.props?.urqlState;
@@ -22,7 +25,7 @@ export async function GET(request: NextRequest) {
       JSON.stringify(curr[1]).length > JSON.stringify(prev[1]).length ? curr : prev
     );
 
-    const data = largestEntry[1].data;
+    const data = (largestEntry[1] as any).data;
     
     // Get first few entries that actually exist
     const samples = [];

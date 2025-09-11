@@ -58,9 +58,10 @@ export async function GET(request: NextRequest) {
           const largest = entries.reduce((prev, curr) => 
             JSON.stringify(curr[1]).length > JSON.stringify(prev[1]).length ? curr : prev
           );
+          const largestValue = largest[1] as any;
           return {
             largestKey: largest[0],
-            dataStructure: largest[1]?.data ? exploreStructure(largest[1].data, 3) : null
+            dataStructure: largestValue?.data ? exploreStructure(largestValue.data, 3) : null
           };
         })() : null
     });

@@ -56,7 +56,7 @@ export async function GET(request: NextRequest) {
     });
 
     const [cacheKey, cacheData] = largestEntry;
-    const data = cacheData.data;
+    const data = (cacheData as any).data;
 
     // Sample some entries to understand structure
     const sampleEntries = [];

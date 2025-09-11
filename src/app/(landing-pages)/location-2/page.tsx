@@ -156,14 +156,14 @@ export default function Location2Page() {
                     centres, all designed to enhance your living experience. We are also pet friendly!
                   </p>
                   <p>
-                    Collier Park Village offers two meeting venues on-site for our residents' convenience. 
+                    Collier Park Village offers two meeting venues on-site for our residents&apos; convenience. 
                     The Community Centre, available to residents and their families, is a charming and 
                     well-equipped space for social gatherings and community events. Our village thrives on 
                     a vibrant social committee and the generous volunteerism of residents.
                   </p>
                   <p>
                     Enjoy a diverse range of activities and events such as cards, bingo, afternoon teas, 
-                    and exercise classes, all held exclusively for our residents' enjoyment in the Community 
+                    and exercise classes, all held exclusively for our residents&apos; enjoyment in the Community 
                     Centre. Additionally, our comprehensive library offers a wide selection of movies for 
                     borrowing, providing ample opportunities for relaxation and entertainment.
                   </p>

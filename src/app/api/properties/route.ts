@@ -39,7 +39,7 @@ export async function GET(request: NextRequest) {
         const extractResult = await AmanaPropertyExtractor.extractAllProperties();
         
         if (!extractResult.success) {
-          console.error('❌ Direct extraction failed:', extractResult.error);
+          console.error('❌ Direct extraction failed:', (extractResult as any).error);
           return NextResponse.json({
             success: false,
             error: 'No properties data available',
@@ -80,7 +80,7 @@ export async function GET(request: NextRequest) {
     console.log('🔍 Applying filters:', filters);
 
     // Get properties based on village filter
-    let properties: Property[] = [];
+    const properties: Property[] = [];
     
     if (!filters.village || filters.village.includes('moline')) {
       properties.push(...cache.properties.moline);

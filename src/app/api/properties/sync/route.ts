@@ -75,7 +75,7 @@ async function handleSync(force: boolean, trigger: 'manual' | 'automated') {
     const extractResult = await AmanaPropertyExtractor.extractAllProperties();
     
     if (!extractResult.success) {
-      console.error('❌ Property extraction failed:', extractResult.error);
+      console.error('❌ Property extraction failed:', (extractResult as any).error);
       return NextResponse.json(extractResult, { status: 500 });
     }
 
