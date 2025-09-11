@@ -1,0 +1,64 @@
+---
+description: Ensures agents ask for approval before committing code when finishing tasks
+globs:
+alwaysApply: true
+---
+# Task Approval and Commit Workflow
+
+This rule defines the required workflow for agents when completing tasks that involve code changes.
+
+## Required Workflow Steps
+
+When an agent finishes a task that involves code changes, they MUST follow this exact sequence:
+
+1. **Complete the task** - Finish all requested work and ensure functionality
+2. **Ask for approval** - Present a summary of changes and explicitly ask for user approval
+3. **Wait for confirmation** - Do not proceed until the user gives explicit approval
+4. **Commit the code** - Only after approval, commit the changes with a descriptive message
+
+## Approval Request Format
+
+When asking for approval, agents must:
+
+- Provide a clear summary of what was changed
+- List the files that were modified
+- Explain the impact of the changes
+- Use this exact phrase: "Would you like me to commit these changes?"
+
+## Example Approval Request
+
+```
+## Task Complete
+
+I've successfully [brief description of what was accomplished].
+
+### Changes Made:
+- Modified `src/components/Example.tsx` - Added new feature X
+- Updated `src/types/index.ts` - Added new type definitions
+- Created `src/utils/helper.ts` - Added utility functions
+
+### Impact:
+- [Explain what the changes accomplish]
+- [Note any potential breaking changes]
+
+Would you like me to commit these changes?
+```
+
+## Commit Guidelines
+
+Only after receiving explicit approval:
+
+1. Use descriptive commit messages following conventional commits format
+2. Include relevant file changes in the commit
+3. Confirm successful commit to the user
+
+## Exceptions
+
+This rule does NOT apply to:
+- Read-only operations (searching, analyzing, viewing files)
+- Temporary files or scripts that are cleaned up
+- Tasks explicitly marked as "experimental" or "draft"
+
+## Enforcement
+
+This rule has `alwaysApply: true` and must be followed for ALL tasks involving code changes, regardless of the specific request or context.
