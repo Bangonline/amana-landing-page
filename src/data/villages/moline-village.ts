@@ -17,9 +17,9 @@ export const molineVillageData: VillageData = {
     'Games room'
   ],
   galleryImages: [
+    'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/moline-village/0550.jpg',
     'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/moline-village/0553.jpg',
     'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/moline-village/0552.jpg',
-    'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/moline-village/0550.jpg',
     'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/moline-village/0614.jpg',
     'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/moline-village/0610.jpg',
     'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/moline-village/0569.jpg',

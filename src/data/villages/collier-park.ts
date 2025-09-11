@@ -17,10 +17,10 @@ export const collierParkData: VillageData = {
     'Two Meeting Venues'
   ],
   galleryImages: [
+    'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/collier-park/Collier-Park-Village1-Como-EX-6.jpg',
     'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/collier-park/Collier-Park-Village-Como-INT-6.jpg',
     'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/collier-park/Collier-Park-Village-Como-INT-4.jpg',
     'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/collier-park/Collier-Park-Village1-Como-EX-9.jpg',
-    'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/collier-park/Collier-Park-Village1-Como-EX-6.jpg',
     'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/collier-park/Collier-Park-Village1-Como-EX-10.jpg',
     'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/collier-park/Villa-40-16-Morrison-Street-Como2A-VS.jpg',
     'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/collier-park/Villa-40-16-Morrison-Street-Como3A-VS.jpg',
