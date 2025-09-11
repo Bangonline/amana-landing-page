@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #1a202c;
+  --amana-blue: #00aeef;
+  --amana-orange: #e5734f;
+  --amana-orange-bright: #ff6600;
+  --amana-background-light: #bed1e3;
+  --amana-text-primary: #1a202c;
+  --amana-text-secondary: #333333;
+  --amana-text-muted: #6b7280;
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-lato), 'Lato', Arial, Helvetica, sans-serif;
+  --font-mono: 'Courier New', monospace;
+  
+  /* Amana Living Brand Colors */
+  --color-amana-blue-50: #f0f8ff;
+  --color-amana-blue-100: #e0f2fe;
+  --color-amana-blue-200: #bae6fd;
+  --color-amana-blue-300: #7dd3fc;
+  --color-amana-blue-400: #38bdf8;
+  --color-amana-blue-500: #00aeef;
+  --color-amana-blue-600: #0284c7;
+  --color-amana-blue-700: #0369a1;
+  --color-amana-blue-800: #075985;
+  --color-amana-blue-900: #0c4a6e;
+  
+  --color-amana-orange-50: #fff7ed;
+  --color-amana-orange-100: #ffedd5;
+  --color-amana-orange-200: #fed7aa;
+  --color-amana-orange-300: #fdba74;
+  --color-amana-orange-400: #fb923c;
+  --color-amana-orange-500: #e5734f;
+  --color-amana-orange-600: #ff6600;
+  --color-amana-orange-700: #ea580c;
+  --color-amana-orange-800: #c2410c;
+  --color-amana-orange-900: #9a3412;
+  
+  --color-amana-background-light: #bed1e3;
+  --color-amana-background-white: #ffffff;
+  --color-amana-background-offwhite: #f8fafc;
+  
+  --color-amana-text-primary: #1a202c;
+  --color-amana-text-secondary: #333333;
+  --color-amana-text-muted: #6b7280;
+  --color-amana-text-light: #9ca3af;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-lato), 'Lato', Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Amana Living specific styles */
+.amana-hero-bg {
+  background: linear-gradient(135deg, var(--amana-background-light) 0%, #e6f2ff 100%);
+}
+
+.amana-card {
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.3s ease;
+}
+
+.amana-card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.amana-button-primary {
+  background-color: var(--amana-orange);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.amana-button-primary:hover {
+  background-color: var(--amana-orange-bright);
+  transform: translateY(-1px);
+}
+
+.amana-button-secondary {
+  background-color: transparent;
+  color: var(--amana-orange);
+  border: 2px solid var(--amana-orange);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.amana-button-secondary:hover {
+  background-color: var(--amana-orange);
+  color: white;
+}
+
+.amana-section-heading {
+  color: var(--amana-text-primary);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.amana-text-primary {
+  color: var(--amana-text-primary);
+}
+
+.amana-text-secondary {
+  color: var(--amana-text-secondary);
+}
+
+.amana-text-muted {
+  color: var(--amana-text-muted);
+}
+
+/* Utility classes for consistent spacing */
+.amana-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .amana-container {
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .amana-container {
+    padding: 0 3rem;
+  }
+}

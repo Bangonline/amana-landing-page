@@ -1,0 +1,82 @@
+'use client'
+
+import { useState, useRef, useEffect } from 'react'
+import { cn } from '@/lib/utils'
+
+interface FAQItem {
+  question: string
+  answer: string
+}
+
+interface FAQAccordionProps {
+  items: FAQItem[]
+  className?: string
+}
+
+interface FAQItemProps {
+  item: FAQItem
+  index: number
+  isOpen: boolean
+  onToggle: () => void
+}
+
+function FAQItemComponent({ item, index, isOpen, onToggle }: FAQItemProps) {
+  const contentRef = useRef<HTMLDivElement>(null)
+  const [height, setHeight] = useState<number>(0)
+
+  useEffect(() => {
+    if (contentRef.current) {
+      setHeight(isOpen ? contentRef.current.scrollHeight : 0)
+    }
+  }, [isOpen])
+
+  return (
+    <div className="border-b border-gray-200 last:border-b-0">
+      <button
+        onClick={onToggle}
+        className="w-full text-left py-4 flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
+      >
+        <span className="font-medium text-black pr-4">{item.question}</span>
+        <span 
+          className={cn(
+            "text-gray-500 flex-shrink-0 transition-transform duration-300",
+            isOpen ? "rotate-180" : "rotate-0"
+          )}
+        >
+          ↓
+        </span>
+      </button>
+      
+      <div
+        className="overflow-hidden transition-all duration-300 ease-in-out"
+        style={{ height: `${height}px` }}
+      >
+        <div ref={contentRef} className="pb-4 text-gray-700 leading-relaxed">
+          {item.answer}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export function FAQAccordion({ items, className }: FAQAccordionProps) {
+  const [openIndex, setOpenIndex] = useState<number | null>(0) // First item open by default
+
+  const toggleItem = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index)
+  }
+
+  return (
+    <div className={cn('space-y-0', className)}>
+      {items.map((item, index) => (
+        <FAQItemComponent
+          key={index}
+          item={item}
+          index={index}
+          isOpen={openIndex === index}
+          onToggle={() => toggleItem(index)}
+        />
+      ))}
+    </div>
+  )
+}
