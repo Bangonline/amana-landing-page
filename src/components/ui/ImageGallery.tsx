@@ -162,7 +162,7 @@ export function ImageGallery({
 
   return (
     <div 
-      className={cn('space-y-4', className)}
+      className={cn('space-y-4 w-full max-w-full', className)}
       data-image-gallery
       role="region"
       aria-label="Image gallery"
@@ -170,7 +170,7 @@ export function ImageGallery({
       {/* Main Image */}
       <div 
         className={cn(
-          'bg-gray-200 rounded-lg overflow-hidden',
+          'bg-gray-200 rounded-lg overflow-hidden w-full max-w-full',
           aspectRatio === 'square' ? 'aspect-square' : 'aspect-[4/3]'
         )}
         role="img"
@@ -183,7 +183,7 @@ export function ImageGallery({
           height={600}
           className="w-full h-full object-cover transition-opacity duration-300 focus:outline-none"
           priority={selectedImage === 0}
-          sizes="(max-width: 768px) 100vw, 600px"
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 600px"
           tabIndex={0}
           onKeyDown={(e) => {
             if (e.key === 'Enter' || e.key === ' ') {
@@ -228,7 +228,7 @@ export function ImageGallery({
                   handleImageChange(index)
                 }}
                 className={cn(
-                  'flex-shrink-0 w-20 h-20 sm:w-24 sm:h-24 rounded-lg overflow-hidden transition-all duration-200 cursor-pointer focus:outline-none',
+                  'flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-lg overflow-hidden transition-all duration-200 cursor-pointer focus:outline-none',
                   selectedImage === index
                     ? 'ring-2 ring-orange-500 ring-offset-2 scale-105'
                     : 'hover:opacity-80 hover:scale-105'
@@ -245,7 +245,7 @@ export function ImageGallery({
                   width={96}
                   height={96}
                   className="w-full h-full object-cover"
-                  sizes="96px"
+                  sizes="(max-width: 640px) 64px, (max-width: 768px) 80px, 96px"
                 />
               </button>
             ))}

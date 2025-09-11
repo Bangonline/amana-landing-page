@@ -90,7 +90,7 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
               </div>
 
               {/* Right Column - Image Gallery */}
-              <div className="space-y-4">
+              <div className="space-y-4 w-full max-w-full">
                 <ImageGallery 
                   images={villageData.galleryImages} 
                   aspectRatio="4/3"
