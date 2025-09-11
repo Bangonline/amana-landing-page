@@ -15,12 +15,11 @@ interface FAQAccordionProps {
 
 interface FAQItemProps {
   item: FAQItem
-  index: number
   isOpen: boolean
   onToggle: () => void
 }
 
-function FAQItemComponent({ item, index, isOpen, onToggle }: FAQItemProps) {
+function FAQItemComponent({ item, isOpen, onToggle }: FAQItemProps) {
   const contentRef = useRef<HTMLDivElement>(null)
   const [height, setHeight] = useState<number>(0)
 
@@ -72,7 +71,6 @@ export function FAQAccordion({ items, className }: FAQAccordionProps) {
         <FAQItemComponent
           key={index}
           item={item}
-          index={index}
           isOpen={openIndex === index}
           onToggle={() => toggleItem(index)}
         />

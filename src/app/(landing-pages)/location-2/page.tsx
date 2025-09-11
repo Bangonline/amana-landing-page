@@ -77,7 +77,7 @@ export default function Location2Page() {
   const faqItems = [
     {
       question: 'What makes this location special?',
-      answer: 'Our second location offers a unique blend of modern amenities and peaceful surroundings. With state-of-the-art facilities and a focus on wellness, it\'s designed for active seniors who want to maintain an independent lifestyle while having access to comprehensive support services.'
+      answer: 'Our second location offers a unique blend of modern amenities and peaceful surroundings. With state-of-the-art facilities and a focus on wellness, it&apos;s designed for active seniors who want to maintain an independent lifestyle while having access to comprehensive support services.'
     },
     {
       question: 'What types of accommodation are available?',
@@ -89,11 +89,11 @@ export default function Location2Page() {
     },
     {
       question: 'How do I arrange a visit?',
-      answer: 'Contact our friendly team to schedule a personalized tour. We\'ll show you around the facilities, introduce you to the community, and answer any questions you may have about life at our village.'
+      answer: 'Contact our friendly team to schedule a personalized tour. We&apos;ll show you around the facilities, introduce you to the community, and answer any questions you may have about life at our village.'
     },
     {
       question: 'What is the application process?',
-      answer: 'The application process is straightforward. After your tour, we\'ll provide you with all the necessary information and guide you through the application. Our team is here to help make the transition as smooth as possible.'
+      answer: 'The application process is straightforward. After your tour, we&apos;ll provide you with all the necessary information and guide you through the application. Our team is here to help make the transition as smooth as possible.'
     }
   ]
 
@@ -346,7 +346,7 @@ export default function Location2Page() {
                   FAQs
                 </h2>
                 <p className="text-gray-700 mb-6">
-                  Have questions about Riverside Village? We're here to help. Feel free to contact us by clicking the button below.
+                  Have questions about Riverside Village? We&apos;re here to help. Feel free to contact us by clicking the button below.
                 </p>
                 <Button variant="outline" className="border-black text-black hover:bg-gray-100">
                   📞 Get in touch

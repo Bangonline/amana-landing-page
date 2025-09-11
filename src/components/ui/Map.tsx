@@ -23,16 +23,11 @@ export function Map({
   zoom = 15, 
   className,
   height = '400px',
-  markers = []
 }: MapProps) {
   const mapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!mapRef.current) return;
-
-    // Create OpenStreetMap tile layer URL
-    const tileLayerUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-    const attribution = '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
 
     // Create map container
     const mapContainer = mapRef.current;

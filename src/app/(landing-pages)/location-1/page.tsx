@@ -121,8 +121,8 @@ export default function Location1Page() {
                   Moline Village
                 </h1>
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  You won't find a better located or more affordable village in Karrinyup than Moline Village. 
-                  It's in a quiet and convenient pocket of the suburb, opposite bushlands and nature reserves.
+                  You won&apos;t find a better located or more affordable village in Karrinyup than Moline Village. 
+                  It&apos;s in a quiet and convenient pocket of the suburb, opposite bushlands and nature reserves.
                 </p>
               </div>
 
@@ -169,20 +169,20 @@ export default function Location1Page() {
                     Moline Village is the perfect spot to take advantage of the enviable Karrinyup lifestyle, 
                     close to Trigg Beach, and the multi-million dollar redevelopments of Scarborough Beach and 
                     Karrinyup Shopping Centre. Enjoy scenic walks in the Trigg Bushland Reserve, hit a hole in 
-                    one at a local golf course or head to Perth's CBD which is only 14km away.
+                    one at a local golf course or head to Perth&apos;s CBD which is only 14km away.
                   </p>
                   <p>
                     Designed for over 55s, the village offers easy living with low maintenance homes in a 
                     tranquil setting. Feel safe and secure in this friendly village which has an active and 
                     welcoming community. You can take part in the many social activities or make the most of 
-                    the village's amenities including swimming pool, mini gym, library, bocce court, mini golf 
+                    the village&apos;s amenities including swimming pool, mini gym, library, bocce court, mini golf 
                     range and more.
                   </p>
                   <p>
                     Each floor has a large communal sunroom where you can unwind with a beverage and a good 
                     book or meet up with friends. Plus, there is a general store run by resident volunteers, 
                     and visiting services including hair salon, beauty therapist, massage therapist, and 
-                    podiatrist. There's also a weekly shopper bus service to the local shopping centre.
+                    podiatrist. There&apos;s also a weekly shopper bus service to the local shopping centre.
                   </p>
                 </div>
               </div>
@@ -340,7 +340,7 @@ export default function Location1Page() {
                   FAQs
                 </h2>
                 <p className="text-gray-700 mb-6">
-                  Have questions about our villages? We're here to help. Feel free to contact us by clicking the button below.
+                  Have questions about our villages? We&apos;re here to help. Feel free to contact us by clicking the button below.
                 </p>
                 <Button variant="outline" className="border-black text-black hover:bg-gray-100">
                   📞 Get in touch

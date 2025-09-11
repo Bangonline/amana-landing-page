@@ -61,8 +61,8 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <p className="mb-4" style={{ color: '#333333' }}>
-                  You won't find a better located or more affordable village in Karrinyup than Moline Village. 
-                  It's in a quiet and convenient pocket of the suburb, opposite bushlands and nature reserves.
+                  You won&apos;t find a better located or more affordable village in Karrinyup than Moline Village. 
+                  It&apos;s in a quiet and convenient pocket of the suburb, opposite bushlands and nature reserves.
                 </p>
                 <Link href="/location-1">
                   <Button className="w-full">Visit Moline Village</Button>

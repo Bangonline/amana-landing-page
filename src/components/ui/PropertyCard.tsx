@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from './Card'
+import Image from 'next/image'
 import { cn } from '@/lib/utils'
 
 interface PropertyCardProps {
@@ -32,9 +33,9 @@ export function PropertyCard({
         </div>
       )}
       
-      <div className="aspect-square bg-gray-200 flex items-center justify-center">
+      <div className="aspect-square bg-gray-200 flex items-center justify-center relative">
         {imageUrl ? (
-          <img src={imageUrl} alt={title} className="w-full h-full object-cover" />
+          <Image src={imageUrl} alt={title} className="object-cover" fill />
         ) : (
           <div className="w-16 h-16 bg-gray-400 rounded flex items-center justify-center">
             <span className="text-gray-600 text-2xl">🏠</span>

@@ -1,5 +1,3 @@
-import { Card, CardContent, CardHeader, CardTitle } from './Card'
-import { Button } from './Button'
 import { cn } from '@/lib/utils'
 
 interface Amenity {
