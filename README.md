@@ -181,12 +181,114 @@ VERCEL_TOKEN="your_vercel_token"
 CRON_SECRET="your_random_secret"
 ```
 
+### ⚠️ Important: Vercel Plan Limitations
+
+This project includes advanced features that have different capabilities based on your Vercel plan:
+
+#### Cron Job Limitations
+| Plan | Cron Jobs | Schedule Restrictions |
+|------|-----------|----------------------|
+| **Hobby** | 2 jobs max | Once per day only |
+| **Pro** | 40 jobs max | Unlimited frequency |
+| **Enterprise** | 100 jobs max | Unlimited frequency |
+
+**Current Configuration**: 
+- **Production**: Cron jobs are **disabled** in `vercel.json` to ensure deployment on Hobby plan
+- **Originally designed**: Every 6 hours sync (`0 */6 * * *`) - requires Pro plan or higher
+
+#### Plan Recommendations
+
+**For Hobby Plan Users:**
+- ✅ All features work except automated sync
+- ✅ Manual sync available via `/api/properties/sync?force=true`
+- ✅ Add daily cron job: `"schedule": "0 2 * * *"` (runs once at 2 AM)
+
+**For Pro Plan Users:**
+- ✅ Enable automated sync by uncommenting cron job in `vercel.json`
+- ✅ Configure sync frequency: every 6 hours recommended
+- ✅ Unlimited cron job invocations
+
+#### Enabling Automated Sync (Pro Plan)
+
+To enable the 6-hour property sync on Pro plan, update `vercel.json`:
+
+```json
+{
+  "crons": [
+    {
+      "path": "/api/properties/sync",
+      "schedule": "0 */6 * * *"
+    }
+  ],
+  "env": {
+    "CRON_SECRET": "@cron-secret"
+  }
+}
+```
+
+#### TypeScript Configuration Notes
+
+**ES2018 Target Required**: The project uses modern regex features (dotAll flag `s`) that require ES2018+:
+- ✅ `tsconfig.json` is configured with `"target": "ES2018"`
+- ⚠️ If you encounter regex compilation errors, verify this setting
+
 ### Deployment Steps:
 1. Create a Vercel Edge Config in your dashboard
 2. Set up environment variables
-3. Push your code to GitHub
-4. Connect your repository to Vercel
-5. Deploy with automatic cron job configuration (via `vercel.json`)
+3. Choose your deployment strategy based on plan:
+   - **Hobby**: Deploy as-is (cron disabled)
+   - **Pro/Enterprise**: Enable cron jobs in `vercel.json`
+4. Push your code to GitHub
+5. Connect your repository to Vercel
+6. Deploy and verify functionality
+
+### Common Deployment Issues & Solutions
+
+#### Issue: "All checks have failed" / Deployment Errors
+**Root Causes & Solutions:**
+
+1. **Cron Job Plan Violation**
+   ```bash
+   # Error: Hobby plan with >1 daily cron job
+   # Solution: Remove or modify cron schedule in vercel.json
+   ```
+
+2. **TypeScript Compilation Errors**
+   ```bash
+   # Error: Regex flag 's' requires ES2018+
+   # Solution: Verify tsconfig.json target is ES2018+
+   ```
+
+3. **ESLint Strict Errors**
+   ```bash
+   # Error: @typescript-eslint/no-explicit-any violations
+   # Solution: Configuration set to warnings instead of errors
+   ```
+
+4. **Repository Mismatch**
+   ```bash
+   # Error: Vercel monitoring wrong repository
+   # Solution: Ensure git remote matches Vercel project repository
+   git remote -v  # Check current remote
+   git remote set-url origin git@github.com:YourUsername/your-repo.git
+   ```
+
+#### Manual Deployment Triggers
+If automated deployment fails, trigger manually:
+
+```bash
+# Force a new commit to trigger deployment
+echo "# Deploy trigger $(date)" >> README.md
+git add README.md
+git commit -m "trigger: manual deployment"
+git push origin main
+```
+
+#### Monitoring Deployment Status
+- **Vercel Dashboard**: Monitor builds and function logs
+- **GitHub Actions**: Check repository webhook delivery
+- **Edge Config**: Verify property data storage
+- **API Testing**: Test endpoints after successful deployment
 
 ## 💻 Usage Examples
 
@@ -368,10 +470,14 @@ Test JSON reconstruction from character arrays found in urql cache.
 4. Use `DynamicPropertySection` component for automatic property loading
 
 ### Property Sync Management
-- **Automatic**: Properties sync every 6 hours via Vercel cron jobs
+- **Automatic**: Properties sync via Vercel cron jobs (Plan dependent - see Deployment section)
 - **Manual**: `GET /api/properties/sync?force=true`
 - **Debug**: `GET /api/properties/debug-data` for data structure analysis
 - **Monitoring**: Check Vercel Functions tab for sync logs and performance
+
+#### Sync Configuration by Plan:
+- **Hobby Plan**: Manual sync only (cron jobs disabled)
+- **Pro/Enterprise**: Enable 6-hour automated sync in `vercel.json`
 
 ### Styling and Theme
 - Modify Tailwind classes in components for visual changes
@@ -451,11 +557,13 @@ Test JSON reconstruction from character arrays found in urql cache.
 - **Live Data Source**: https://www.amanaliving.com.au/retirement-villages/locations/moline-village
 - **Extraction Method**: `__NEXT_DATA__` urql GraphQL cache with character array reconstruction
 - **Global Storage**: Vercel Edge Config for <50ms worldwide response times
-- **Automated Sync**: Every 6 hours via Vercel cron jobs (configurable)
+- **Automated Sync**: Configurable via cron jobs (Plan dependent - see Deployment section)
+- **Manual Sync**: Always available via API endpoint for all plans
 - **Error Handling**: Comprehensive fallback states and error recovery
 - **Debug Tools**: Available at `/api/properties/debug-*` endpoints
-- **Type Safety**: Full TypeScript coverage with strict mode
+- **Type Safety**: Full TypeScript coverage with ES2018+ target
 - **Performance**: Optimized for Vercel Edge Network deployment
+- **Deployment**: Tested on Hobby plan with Pro plan upgrade path
 
 ### 🔧 Technical Capabilities
 - **Smart Extraction**: Character array reconstruction from fragmented JSON
@@ -491,4 +599,4 @@ For questions about the project, feature requests, or technical support, please 
 - 🏠 [Moline Village](https://your-domain.vercel.app/location-1)
 - 🏞️ [Riverside Village](https://your-domain.vercel.app/location-2)
 - 🔌 [Properties API](https://your-domain.vercel.app/api/properties)
-- 🔄 [Sync Properties](https://your-domain.vercel.app/api/properties/sync)# Trigger deployment
+- 🔄 [Sync Properties](https://your-domain.vercel.app/api/properties/sync)
