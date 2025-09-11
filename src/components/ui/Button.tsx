@@ -45,7 +45,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           'inline-flex items-center justify-center font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none cursor-pointer disabled:cursor-not-allowed',
           {
             // Amana Living primary button (orange)
-            'text-white hover:-translate-y-0.5 shadow-md hover:shadow-lg': variant === 'primary',
+            'text-white hover:-translate-y-0.5 shadow-md hover:shadow-lg hover:bg-orange-600': variant === 'primary',
             // Amana Living secondary button (outline orange)
             'bg-transparent border-2 hover:text-white': variant === 'secondary',
             // Outline variant (blue outline)

@@ -1,5 +1,6 @@
 export interface VillageConsultant {
-  name: string
+  firstName: string
+  lastName: string
   image?: string
   phone?: string
   email?: string

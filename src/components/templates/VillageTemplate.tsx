@@ -61,7 +61,7 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button className="bg-black text-white hover:bg-gray-800">
+                  <Button>
                     Make an enquiry
                   </Button>
                   <Button 
@@ -131,7 +131,7 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
                   {villageData.consultant.image ? (
                     <img 
                       src={villageData.consultant.image} 
-                      alt={`${villageData.consultant.name} - ${villageData.name} Consultant`} 
+                      alt={`${villageData.consultant.firstName} ${villageData.consultant.lastName} - ${villageData.name} Consultant`} 
                       className="w-full h-full object-cover"
                     />
                   ) : (
@@ -142,25 +142,27 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
                 </div>
                 <div className="space-y-3">
                   <h4 className="text-xl font-bold text-black">
-                    {villageData.consultant.name || 'Village Consultant'}
+                    {villageData.consultant.firstName && villageData.consultant.lastName 
+                      ? `${villageData.consultant.firstName} ${villageData.consultant.lastName}` 
+                      : 'Village Consultant'}
                   </h4>
                   <p className="text-gray-700 leading-relaxed px-2">
                     {villageData.consultant.description}
                   </p>
                 </div>
-                <div className="space-y-4 pt-2">
+                <div className="space-y-4 pt-2 flex flex-col items-center">
+                  <h5 className="text-lg font-semibold text-black mb-2">Book a Tour</h5>
                   <a 
                     href={villageData.consultant.phone ? `tel:${villageData.consultant.phone.replace(/\s/g, '')}` : "tel:1300262626"}
-                    className={`w-full text-white border-0 py-3 rounded transition-colors flex items-center justify-center gap-2 ${villageData.consultant.name ? 'bg-amana-orange-500 hover:bg-amana-orange-600' : 'bg-white border border-black text-black hover:bg-gray-100'}`}
+                    className={`inline-flex items-center justify-center font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none cursor-pointer disabled:cursor-not-allowed hover:-translate-y-0.5 shadow-md hover:shadow-lg h-10 px-6 text-base rounded-lg text-white hover:bg-orange-600 ${villageData.consultant.firstName ? 'bg-orange-500' : 'bg-white border border-black text-black hover:bg-gray-100'}`}
                   >
-                    📞 {villageData.consultant.phone ? `Call ${villageData.consultant.name} to book a tour` : 'Call to book a tour'}
+                    {villageData.consultant.phone || '1300 26 26 26'}
                   </a>
                   <a 
                     href={villageData.consultant.email ? `mailto:${villageData.consultant.email}?subject=Enquiry about ${villageData.name} - Tour and Information Request` : "mailto:contact@amanaliving.com.au?subject=Enquiry about Retirement Village - Tour and Information Request"} 
-                    className="block text-black hover:underline flex items-center justify-center gap-2 py-2"
+                    className="text-black hover:underline flex items-center justify-center gap-2 py-2"
                   >
-                    {villageData.consultant.email ? `Email ${villageData.consultant.name}` : 'Send us an email'}
-                    <span>→</span>
+                    {villageData.consultant.email || 'contact@amanaliving.com.au'}
                   </a>
                 </div>
               </div>
@@ -300,7 +302,7 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
                 ))}
               </div>
 
-              <Button className="bg-black text-white hover:bg-gray-800">
+              <Button>
                 Book a tour today
               </Button>
             </div>
@@ -370,7 +372,7 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
               </div>
               
               <Button className="w-full bg-white text-gray-800 hover:bg-gray-100">
-                {villageData.consultant.name ? `Book a tour with ${villageData.consultant.name}` : 'Book a tour today'}
+                {villageData.consultant.firstName ? `Book a tour with ${villageData.consultant.firstName}` : 'Book a tour today'}
               </Button>
             </div>
           </div>

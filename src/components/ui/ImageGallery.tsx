@@ -8,7 +8,7 @@ interface ImageGalleryProps {
   images: string[]
   className?: string
   showThumbnails?: boolean
-  aspectRatio?: 'square' | '4/3'
+  aspectRatio?: 'square' | '4/3' | '3/2'
   selectedIndex?: number
   onImageChange?: (index: number) => void
 }
@@ -17,7 +17,7 @@ export function ImageGallery({
   images, 
   className, 
   showThumbnails = true, 
-  aspectRatio = 'square',
+  aspectRatio = '3/2',
   selectedIndex,
   onImageChange
 }: ImageGalleryProps) {
@@ -170,20 +170,22 @@ export function ImageGallery({
       {/* Main Image */}
       <div 
         className={cn(
-          'bg-gray-200 rounded-lg overflow-hidden w-full max-w-full shadow-sm',
-          aspectRatio === 'square' ? 'aspect-square' : 'aspect-[4/3]'
+          'bg-gray-200 rounded-lg overflow-hidden w-full max-w-full shadow-sm relative group',
+          aspectRatio === 'square' ? 'aspect-square' : 
+          aspectRatio === '4/3' ? 'aspect-[4/3]' : 'aspect-[3/2]'
         )}
+        style={aspectRatio === '3/2' ? { aspectRatio: '640 / 426' } : undefined}
         role="img"
         aria-label={`Gallery image ${selectedImage + 1} of ${images.length}`}
       >
         <Image
           src={images[selectedImage]}
           alt={`Gallery image ${selectedImage + 1} of ${images.length}`}
-          width={600}
-          height={600}
+          width={640}
+          height={426}
           className="w-full h-full object-cover transition-opacity duration-300 focus:outline-none"
           priority={selectedImage === 0}
-          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 600px"
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 640px"
           tabIndex={0}
           onKeyDown={(e) => {
             if (e.key === 'Enter' || e.key === ' ') {
@@ -192,18 +194,51 @@ export function ImageGallery({
             }
           }}
         />
+        
+        {/* Navigation Arrows */}
+        {images.length > 1 && (
+          <>
+            {/* Previous Arrow */}
+            <button
+              onClick={() => {
+                const newIndex = selectedImage > 0 ? selectedImage - 1 : images.length - 1
+                handleImageChange(newIndex)
+              }}
+              className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 active:bg-black/80 text-white rounded-full p-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-200 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 touch-manipulation cursor-pointer"
+              aria-label="Previous image"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            
+            {/* Next Arrow */}
+            <button
+              onClick={() => {
+                const newIndex = selectedImage < images.length - 1 ? selectedImage + 1 : 0
+                handleImageChange(newIndex)
+              }}
+              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 active:bg-black/80 text-white rounded-full p-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-200 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 touch-manipulation cursor-pointer"
+              aria-label="Next image"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </>
+        )}
       </div>
       
       {/* Scrollable Thumbnail Gallery */}
       {showThumbnails && (
         <div 
-          className="relative px-2"
+          className="relative"
           role="tablist"
           aria-label="Gallery thumbnails"
         >
           <div 
             ref={thumbnailsRef}
-            className="flex flex-wrap sm:flex-nowrap gap-2 sm:gap-3 overflow-x-auto scrollbar-hide pb-2 -mx-1 px-1 cursor-grab select-none justify-center sm:justify-start"
+            className="flex flex-wrap sm:flex-nowrap gap-1 sm:gap-3 overflow-x-auto scrollbar-hide pb-2 cursor-grab select-none justify-center sm:justify-start w-full"
             style={{
               scrollbarWidth: 'none', // Firefox
               msOverflowStyle: 'none', // IE/Edge
@@ -228,11 +263,12 @@ export function ImageGallery({
                   handleImageChange(index)
                 }}
                 className={cn(
-                  'flex-shrink-0 w-20 h-20 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-lg overflow-hidden transition-all duration-200 cursor-pointer focus:outline-none border-2 border-transparent',
+                  'flex-shrink-0 w-20 sm:w-20 md:w-24 rounded-lg overflow-hidden transition-all duration-200 cursor-pointer focus:outline-none border-2 border-transparent',
                   selectedImage === index
-                    ? 'ring-2 ring-orange-500 ring-offset-1 scale-105 border-orange-500'
+                    ? ''
                     : 'hover:opacity-80 hover:scale-105 hover:border-gray-300'
                 )}
+                style={{ aspectRatio: '640 / 426' }}
                 role="tab"
                 aria-selected={selectedImage === index}
                 aria-controls="main-image"
@@ -243,7 +279,7 @@ export function ImageGallery({
                   src={image}
                   alt={`Thumbnail ${index + 1}`}
                   width={96}
-                  height={96}
+                  height={64}
                   className="w-full h-full object-cover"
                   sizes="(max-width: 640px) 80px, (max-width: 768px) 80px, 96px"
                 />

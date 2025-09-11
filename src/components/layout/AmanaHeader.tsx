@@ -20,13 +20,23 @@ export function AmanaHeader() {
           <div className="flex items-center justify-between py-3">
             {/* Logo */}
             <Link href="https://www.amanaliving.com.au/" className="flex-shrink-0">
+              {/* Desktop Logo */}
+              <Image
+                src="/images/logo-amana-horizontal-no_byline.svg"
+                alt="Amana Living"
+                width={186}
+                height={56}
+                className="hidden sm:block h-10 w-auto"
+                sizes="186px"
+              />
+              {/* Mobile Logo */}
               <Image
                 src="/amana-logo.svg"
                 alt="Amana Living"
-                width={180}
-                height={50}
-                className="h-10 w-auto"
-                sizes="180px"
+                width={120}
+                height={40}
+                className="sm:hidden h-8 w-auto"
+                sizes="120px"
               />
             </Link>
 
@@ -63,12 +73,6 @@ export function AmanaHeader() {
               <a href="tel:1300262626" className="text-sm font-bold text-gray-800 hover:text-gray-600 transition-colors">
                 Contact us: 1300 26 26 26
               </a>
-              <button className="p-2 text-gray-600 hover:text-gray-800 transition-colors cursor-pointer">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <path d="m21 21-4.35-4.35"></path>
-                </svg>
-              </button>
             </div>
 
             {/* Mobile Menu Button */}
@@ -93,7 +97,7 @@ export function AmanaHeader() {
       </div>
 
       {/* Main Navigation Bar */}
-      <div style={{ backgroundColor: '#1C3F95' }}>
+      <div style={{ backgroundColor: '#004676' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav className="flex items-center justify-between py-4">
             {/* Main Navigation Links */}
@@ -120,20 +124,15 @@ export function AmanaHeader() {
 
             {/* Right side - Search and Call Button */}
             <div className="hidden lg:flex items-center space-x-4">
-              <button className="p-2 text-white hover:text-orange-400 transition-colors cursor-pointer">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <path d="m21 21-4.35-4.35"></path>
-                </svg>
-              </button>
-              <a href="tel:1300262626" className="flex items-center px-4 py-2 bg-orange-400 text-white rounded text-sm font-medium hover:bg-orange-500 transition-colors">
+
+              <a href="tel:1300262626" className="inline-flex items-center justify-center font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none cursor-pointer disabled:cursor-not-allowed hover:-translate-y-0.5 shadow-md hover:shadow-lg h-10 px-6 text-base rounded-lg bg-orange-500 text-white hover:bg-orange-600">
                 Call us
               </a>
             </div>
 
             {/* Mobile Call Button */}
             <div className="sm:hidden">
-              <a href="tel:1300262626" className="flex items-center px-3 py-2 bg-orange-400 text-white rounded text-sm font-medium">
+              <a href="tel:1300262626" className="inline-flex items-center justify-center font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none cursor-pointer disabled:cursor-not-allowed hover:-translate-y-0.5 shadow-md hover:shadow-lg h-8 px-3 text-sm rounded-md bg-orange-500 text-white hover:bg-orange-600">
                 Call us
               </a>
             </div>
