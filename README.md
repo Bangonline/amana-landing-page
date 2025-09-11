@@ -466,7 +466,7 @@ Trigger manual property synchronization.
   "count": 25,
   "villages": ["moline", "riverside"],
   "duration": 1250,
-  "timestamp": "2024-01-15T10:30:00Z",
+  "timestamp": "2024-01-15T10:30:01Z",
   "trigger": "manual"
 }
 ```
