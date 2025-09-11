@@ -162,7 +162,7 @@ export function ImageGallery({
 
   return (
     <div 
-      className={cn('space-y-4 w-full max-w-full', className)}
+      className={cn('space-y-6 w-full max-w-full', className)}
       data-image-gallery
       role="region"
       aria-label="Image gallery"
@@ -170,7 +170,7 @@ export function ImageGallery({
       {/* Main Image */}
       <div 
         className={cn(
-          'bg-gray-200 rounded-lg overflow-hidden w-full max-w-full',
+          'bg-gray-200 rounded-lg overflow-hidden w-full max-w-full shadow-sm',
           aspectRatio === 'square' ? 'aspect-square' : 'aspect-[4/3]'
         )}
         role="img"
@@ -197,13 +197,13 @@ export function ImageGallery({
       {/* Scrollable Thumbnail Gallery */}
       {showThumbnails && (
         <div 
-          className="relative"
+          className="relative px-2"
           role="tablist"
           aria-label="Gallery thumbnails"
         >
           <div 
             ref={thumbnailsRef}
-            className="flex gap-3 overflow-x-auto scrollbar-hide pb-2 -mx-1 px-1 cursor-grab select-none"
+            className="flex flex-wrap sm:flex-nowrap gap-2 sm:gap-3 overflow-x-auto scrollbar-hide pb-2 -mx-1 px-1 cursor-grab select-none justify-center sm:justify-start"
             style={{
               scrollbarWidth: 'none', // Firefox
               msOverflowStyle: 'none', // IE/Edge
@@ -228,10 +228,10 @@ export function ImageGallery({
                   handleImageChange(index)
                 }}
                 className={cn(
-                  'flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-lg overflow-hidden transition-all duration-200 cursor-pointer focus:outline-none',
+                  'flex-shrink-0 w-20 h-20 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-lg overflow-hidden transition-all duration-200 cursor-pointer focus:outline-none border-2 border-transparent',
                   selectedImage === index
-                    ? 'ring-2 ring-orange-500 ring-offset-2 scale-105'
-                    : 'hover:opacity-80 hover:scale-105'
+                    ? 'ring-2 ring-orange-500 ring-offset-1 scale-105 border-orange-500'
+                    : 'hover:opacity-80 hover:scale-105 hover:border-gray-300'
                 )}
                 role="tab"
                 aria-selected={selectedImage === index}
@@ -245,15 +245,15 @@ export function ImageGallery({
                   width={96}
                   height={96}
                   className="w-full h-full object-cover"
-                  sizes="(max-width: 640px) 64px, (max-width: 768px) 80px, 96px"
+                  sizes="(max-width: 640px) 80px, (max-width: 768px) 80px, 96px"
                 />
               </button>
             ))}
           </div>
           
-          {/* Visual indicator for scrollability */}
-          <div className="absolute right-0 top-0 bottom-2 w-6 bg-gradient-to-l from-white via-white to-transparent pointer-events-none opacity-50" />
-          <div className="absolute left-0 top-0 bottom-2 w-6 bg-gradient-to-r from-white via-white to-transparent pointer-events-none opacity-50" />
+          {/* Visual indicator for scrollability - only show on larger screens where thumbnails don't wrap */}
+          <div className="hidden sm:block absolute right-0 top-0 bottom-2 w-6 bg-gradient-to-l from-white via-white to-transparent pointer-events-none opacity-50" />
+          <div className="hidden sm:block absolute left-0 top-0 bottom-2 w-6 bg-gradient-to-r from-white via-white to-transparent pointer-events-none opacity-50" />
         </div>
       )}
       
