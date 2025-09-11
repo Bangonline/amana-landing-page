@@ -54,7 +54,7 @@ export function LocationCard({
               <h4 className="font-bold text-black mb-1">Location</h4>
               <p className="text-gray-700 mb-2">{address}</p>
               <a 
-                href={latitude && longitude ? `https://www.openstreetmap.org/?mlat=${latitude}&mlon=${longitude}#map=16/${latitude}/${longitude}` : "#"}
+                href={latitude && longitude ? `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}` : `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-black hover:underline flex items-center gap-1"
