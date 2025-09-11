@@ -58,7 +58,7 @@ export function Header() {
                 <Link href="https://training.amanaliving.com.au" target="_blank" rel="noopener noreferrer" className="text-sm hover:text-orange-500 transition-colors" style={{ color: '#1C3F95' }}>
                   Training
                 </Link>
-                <Link href="https://www.amanaliving.com.au/about-us/how-you-can-help/volunteer" target="_blank" rel="noopener noreferrer" className="text-sm hover:text-orange-500 transition-colors" style={{ color: '#1C3F95' }}>
+                <Link href="https://www.amanaliving.com.au/about-us/how-you-can-help/volunteer" className="text-sm hover:text-orange-500 transition-colors" style={{ color: '#1C3F95' }}>
                   Volunteer
                 </Link>
                 <Link href="https://www.amanaliving.com.au/contact-us" className="text-sm hover:text-orange-500 transition-colors" style={{ color: '#1C3F95' }}>
@@ -72,7 +72,7 @@ export function Header() {
 
             {/* Mobile Menu Button */}
             <div className="flex items-center space-x-2 sm:hidden">
-              <button className="p-2 hover:text-orange-500 transition-colors" style={{ color: '#1C3F95' }}>
+              <button className="p-2 hover:text-orange-500 transition-colors cursor-pointer" style={{ color: '#1C3F95' }}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <circle cx="11" cy="11" r="8"></circle>
                   <path d="m21 21-4.35-4.35"></path>
@@ -123,7 +123,7 @@ export function Header() {
 
             {/* Desktop Search */}
             <div className="hidden lg:block">
-              <button className="p-2 text-white hover:text-orange-500 transition-colors">
+              <button className="p-2 text-white hover:text-orange-500 transition-colors cursor-pointer">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <circle cx="11" cy="11" r="8"></circle>
                   <path d="m21 21-4.35-4.35"></path>
@@ -173,7 +173,7 @@ export function Header() {
                 <Link href="https://training.amanaliving.com.au" target="_blank" rel="noopener noreferrer" className="block text-sm hover:text-orange-500 transition-colors" style={{ color: '#1C3F95' }}>
                   Training
                 </Link>
-                <Link href="https://www.amanaliving.com.au/about-us/how-you-can-help/volunteer" target="_blank" rel="noopener noreferrer" className="block text-sm hover:text-orange-500 transition-colors" style={{ color: '#1C3F95' }}>
+                <Link href="https://www.amanaliving.com.au/about-us/how-you-can-help/volunteer" className="block text-sm hover:text-orange-500 transition-colors" style={{ color: '#1C3F95' }}>
                   Volunteer
                 </Link>
                 <Link href="https://www.amanaliving.com.au/contact-us" className="block text-sm hover:text-orange-500 transition-colors" style={{ color: '#1C3F95' }}>

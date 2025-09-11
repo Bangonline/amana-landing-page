@@ -4,6 +4,7 @@ import { Map } from './Map'
 interface Amenity {
   name: string
   distance: string
+  iconSvg: string
 }
 
 interface LocationCardProps {
@@ -70,8 +71,13 @@ export function LocationCard({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {amenities.map((amenity, index) => (
                 <div key={index} className="flex items-center gap-3">
-                  <div className="w-6 h-6 bg-gray-200 rounded flex items-center justify-center flex-shrink-0">
-                    <span className="text-xs">📦</span>
+                  <div className="w-8 h-8 flex items-center justify-center flex-shrink-0">
+                    <img 
+                      src={amenity.iconSvg}
+                      alt={amenity.name}
+                      className="w-6 h-6"
+                      loading="lazy"
+                    />
                   </div>
                   <div>
                     <div className="font-medium text-black text-sm">{amenity.name}</div>

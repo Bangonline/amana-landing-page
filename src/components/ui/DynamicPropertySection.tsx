@@ -172,7 +172,7 @@ export function DynamicPropertySection({
 
         {properties.length > maxProperties && (
           <div className="text-center mt-8">
-            <button className="bg-black text-white px-6 py-3 rounded hover:bg-gray-800 transition-colors">
+            <button className="bg-black text-white px-6 py-3 rounded hover:bg-gray-800 transition-colors cursor-pointer">
               View All {properties.length} Properties
             </button>
           </div>

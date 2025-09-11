@@ -13,6 +13,7 @@ interface ServicesGridProps {
   description?: string
   services: Service[]
   className?: string
+  variant?: 'default' | 'light' // light variant for colored backgrounds
 }
 
 export function ServicesGrid({
@@ -20,19 +21,29 @@ export function ServicesGrid({
   subtitle,
   description,
   services,
-  className
+  className,
+  variant = 'default'
 }: ServicesGridProps) {
   return (
     <div className={cn('space-y-6', className)}>
       <div className="text-center">
-        <h2 className="text-sm font-bold uppercase text-gray-500 mb-2">
+        <h2 className={cn(
+          "text-sm font-bold uppercase mb-2",
+          variant === 'light' ? 'text-white' : 'text-gray-500'
+        )}>
           {title}
         </h2>
-        <h3 className="text-2xl md:text-3xl font-bold text-black mb-4">
+        <h3 className={cn(
+          "text-2xl md:text-3xl font-bold mb-4",
+          variant === 'light' ? 'text-white' : 'text-black'
+        )}>
           {subtitle}
         </h3>
         {description && (
-          <p className="text-gray-700 max-w-2xl mx-auto">
+          <p className={cn(
+            "max-w-2xl mx-auto",
+            variant === 'light' ? 'text-white' : 'text-gray-700'
+          )}>
             {description}
           </p>
         )}
@@ -49,6 +60,7 @@ export function ServicesGrid({
                   width={32}
                   height={32}
                   className="w-8 h-8"
+                  sizes="32px"
                 />
               ) : (
                 <span className="text-gray-600 text-2xl">
@@ -56,7 +68,10 @@ export function ServicesGrid({
                 </span>
               )}
             </div>
-            <h4 className="font-medium text-black text-sm">{service.name}</h4>
+            <h4 className={cn(
+              "font-medium text-sm",
+              variant === 'light' ? 'text-white' : 'text-black'
+            )}>{service.name}</h4>
           </div>
         ))}
       </div>

@@ -72,8 +72,17 @@ export function PropertyCard(props: CombinedPropertyCardProps) {
         target={detailsUrl ? "_blank" : undefined}
         rel={detailsUrl ? "noopener noreferrer" : undefined}
       >
-        {imageUrl ? (
-          <Image src={imageUrl} alt={title} className="object-cover" fill />
+        {imageUrl && !imageUrl.includes('AUTO×AUTO') ? (
+          <Image 
+            src={imageUrl} 
+            alt={title} 
+            className="object-cover" 
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            onError={(e) => {
+              e.currentTarget.style.display = 'none';
+            }}
+          />
         ) : (
           <div className="w-16 h-16 bg-gray-400 rounded flex items-center justify-center">
             <span className="text-gray-600 text-2xl">🏠</span>

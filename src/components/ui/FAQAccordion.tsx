@@ -30,15 +30,15 @@ function FAQItemComponent({ item, isOpen, onToggle }: FAQItemProps) {
   }, [isOpen])
 
   return (
-    <div className="border-b border-gray-200 last:border-b-0">
+    <div className="border-b border-gray-200 last:border-b-0 hover:border-blue-200 transition-colors duration-200">
       <button
         onClick={onToggle}
-        className="w-full text-left py-4 flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
+        className="w-full text-left py-4 flex items-center justify-between cursor-pointer hover:bg-blue-50 hover:bg-opacity-70 transition-all duration-200 ease-in-out group"
       >
-        <span className="font-medium text-black pr-4">{item.question}</span>
+        <span className="font-medium text-black pr-4 group-hover:text-blue-600 transition-colors duration-200">{item.question}</span>
         <span 
           className={cn(
-            "text-gray-500 flex-shrink-0 transition-transform duration-300",
+            "text-gray-500 flex-shrink-0 transition-all duration-300 group-hover:text-blue-500 group-hover:scale-110",
             isOpen ? "rotate-180" : "rotate-0"
           )}
         >

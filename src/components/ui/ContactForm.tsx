@@ -31,8 +31,8 @@ export function ContactForm({
       // Post to Amana Living help centre search
       const searchUrl = `https://www.amanaliving.com.au/help-centre/search?q=${encodeURIComponent(question.trim())}`
       
-      // Open in new tab to preserve user experience
-      window.open(searchUrl, '_blank', 'noopener,noreferrer')
+      // Navigate to search results in same window
+      window.location.href = searchUrl
       
       // Clear the form
       setQuestion('')

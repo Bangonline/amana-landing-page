@@ -29,7 +29,7 @@ export function AmanaHeader() {
                 <Link href="https://www.amanaliving.com.au/about-us/how-you-can-help/donate" className="text-sm text-gray-700 hover:text-gray-900">Donate</Link>
                 <Link href="https://careers.amanaliving.com.au/" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-700 hover:text-gray-900">Careers</Link>
                 <Link href="https://training.amanaliving.com.au" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-700 hover:text-gray-900">Training</Link>
-                <Link href="https://www.amanaliving.com.au/about-us/how-you-can-help/volunteer" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-700 hover:text-gray-900">Volunteer</Link>
+                <Link href="https://www.amanaliving.com.au/about-us/how-you-can-help/volunteer" className="text-sm text-gray-700 hover:text-gray-900">Volunteer</Link>
                 <Link href="https://www.amanaliving.com.au/contact-us" className="text-sm text-gray-700 hover:text-gray-900">Contact</Link>
               </nav>
               <div className="text-sm font-semibold text-gray-900">
@@ -49,6 +49,7 @@ export function AmanaHeader() {
                   width={240}
                   height={80}
                   className="h-16 w-auto"
+                  sizes="240px"
                 />
               </Link>
             </div>
@@ -88,7 +89,7 @@ export function AmanaHeader() {
               
               <button
                 onClick={toggleMobileMenu}
-                className="p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-500"
+                className="p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-500 cursor-pointer"
               >
                 <span className="sr-only">Open main menu</span>
                 {isMobileMenuOpen ? (
@@ -156,7 +157,7 @@ export function AmanaHeader() {
               <Link href="https://training.amanaliving.com.au" target="_blank" rel="noopener noreferrer" className="block px-3 py-2 text-white text-sm hover:bg-blue-800 rounded-md">
                 Training
               </Link>
-              <Link href="https://www.amanaliving.com.au/about-us/how-you-can-help/volunteer" target="_blank" rel="noopener noreferrer" className="block px-3 py-2 text-white text-sm hover:bg-blue-800 rounded-md">
+              <Link href="https://www.amanaliving.com.au/about-us/how-you-can-help/volunteer" className="block px-3 py-2 text-white text-sm hover:bg-blue-800 rounded-md">
                 Volunteer
               </Link>
               <Link href="https://www.amanaliving.com.au/contact-us" className="block px-3 py-2 text-white text-sm hover:bg-blue-800 rounded-md">

@@ -7,6 +7,7 @@ interface TestimonialProps {
   location: string
   rating?: number
   className?: string
+  variant?: 'default' | 'light' // light variant for colored backgrounds
 }
 
 export function Testimonial({ 
@@ -15,24 +16,34 @@ export function Testimonial({
   role, 
   location, 
   rating = 5, 
-  className 
+  className,
+  variant = 'default'
 }: TestimonialProps) {
   return (
     <div className={cn('space-y-4', className)}>
       {/* Star Rating */}
       <div className="flex gap-1">
         {Array.from({ length: rating }, (_, i) => (
-          <span key={i} className="text-black text-lg">★</span>
+          <span key={i} className={cn(
+            "text-lg",
+            variant === 'light' ? 'text-white' : 'text-black'
+          )}>★</span>
         ))}
       </div>
       
       {/* Quote */}
-      <blockquote className="text-lg font-bold text-black leading-relaxed">
+      <blockquote className={cn(
+        "text-lg font-bold leading-relaxed",
+        variant === 'light' ? 'text-white' : 'text-black'
+      )}>
         &ldquo;{quote}&rdquo;
       </blockquote>
       
       {/* Author */}
-      <div className="text-sm text-gray-600">
+      <div className={cn(
+        "text-sm",
+        variant === 'light' ? 'text-white' : 'text-gray-600'
+      )}>
         {author}, {role}, {location}
       </div>
     </div>
