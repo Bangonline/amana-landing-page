@@ -491,4 +491,4 @@ For questions about the project, feature requests, or technical support, please 
 - 🏠 [Moline Village](https://your-domain.vercel.app/location-1)
 - 🏞️ [Riverside Village](https://your-domain.vercel.app/location-2)
 - 🔌 [Properties API](https://your-domain.vercel.app/api/properties)
-- 🔄 [Sync Properties](https://your-domain.vercel.app/api/properties/sync)
+- 🔄 [Sync Properties](https://your-domain.vercel.app/api/properties/sync)# Trigger deployment
