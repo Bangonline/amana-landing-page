@@ -214,7 +214,7 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
       </section>
 
       {/* Testimonial Section */}
-      <section className="py-16 px-4" style={{ backgroundColor: '#BED1E3' }}>
+      <section className="py-16 px-4" style={{ backgroundColor: '#F8FAFC' }}>
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <Testimonial
@@ -253,7 +253,7 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
       </section>
 
       {/* Lifestyle & Services Section */}
-      <section className="py-16 px-4" style={{ backgroundColor: '#BED1E3' }}>
+      <section className="py-16 px-4" style={{ backgroundColor: '#F8FAFC' }}>
         <div className="max-w-6xl mx-auto">
           <ServicesGrid
             title="LIFESTYLE & SERVICES"
@@ -318,7 +318,7 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 px-4" style={{ backgroundColor: '#BED1E3' }}>
+      <section className="py-16 px-4" style={{ backgroundColor: '#F8FAFC' }}>
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12">
             <div className="space-y-6">
