@@ -27,9 +27,9 @@ export class AmanaPropertyExtractor {
       displayName: 'Moline Village'
     },
     riverside: {
-      slug: 'riverside-village', 
-      url: 'https://www.amanaliving.com.au/retirement-villages/locations/riverside-village',
-      displayName: 'Riverside Village'
+      slug: 'collier-park', 
+      url: 'https://www.amanaliving.com.au/retirement-villages/locations/collier-park',
+      displayName: 'Collier Park'
     }
   } as const;
 

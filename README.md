@@ -13,7 +13,7 @@ A modern, responsive website built with Next.js 15, TypeScript, and Tailwind CSS
 - **Rich Property Details**: Pricing, bedrooms, bathrooms, features, status, and high-quality images
 
 ### 🎨 Landing Pages & Design
-- **Two Complete Village Sites**: Moline Village and Riverside Village
+- **Two Complete Village Sites**: Moline Village and Collier Park
 - **Responsive Design**: Mobile-first approach with Tailwind CSS v4
 - **Modern Components**: Reusable UI components with dynamic property support
 - **Clean Design System**: Minimalist aesthetic based on Figma wireframes
@@ -56,7 +56,7 @@ project-root/
 │   │   ├── (landing-pages)/          # Route groups for villages
 │   │   │   ├── location-1/           # Moline Village landing page
 │   │   │   │   └── page.tsx
-│   │   │   └── location-2/           # Riverside Village landing page
+│   │   │   └── location-2/           # Collier Park landing page
 │   │   │       └── page.tsx
 │   │   ├── api/                      # API routes and server functions
 │   │   │   ├── analyze-data/         # Data analysis endpoint
@@ -140,7 +140,7 @@ The project follows a clean, minimalist design system based on the provided Figm
 - FAQ accordion
 - Tour booking section
 
-### Riverside Village (`/location-2`)
+### Collier Park (`/location-2`)
 - Similar structure to Moline Village
 - Unique content and styling for the second location
 - Modern amenities and services focus
@@ -615,7 +615,7 @@ For questions about the project, feature requests, or technical support, please 
 
 ### Quick Links
 - 🏠 [Moline Village](https://your-domain.vercel.app/location-1)
-- 🏞️ [Riverside Village](https://your-domain.vercel.app/location-2)
+- 🏞️ [Collier Park](https://your-domain.vercel.app/location-2)
 - 🔌 [Properties API](https://your-domain.vercel.app/api/properties)
 - 🔄 [Sync Properties](https://your-domain.vercel.app/api/properties/sync)
 # Force deployment Thu Sep 11 11:35:28 AWST 2025

@@ -24,7 +24,7 @@ This is a Next.js 15.5 application with App Router serving two dedicated landing
 
 ### Route Structure
 - `/location-1` - Moline Village landing page
-- `/location-2` - Riverside Village landing page  
+- `/location-2` - Collier Park landing page  
 - `/` - Returns 404 (intentionally removed)
 
 ### App Router Layout
@@ -32,7 +32,7 @@ This is a Next.js 15.5 application with App Router serving two dedicated landing
 src/app/
 ├── (landing-pages)/     # Route group for landing pages
 │   ├── location-1/      # Moline Village  
-│   └── location-2/      # Riverside Village
+│   └── location-2/      # Collier Park
 ├── layout.tsx           # Root layout with Lato font and metadata
 ├── globals.css          # Global Tailwind styles
 └── favicon.ico

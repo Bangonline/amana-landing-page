@@ -152,7 +152,7 @@ export function DynamicPropertySection({
             </h3>
           )}
           <p className="text-gray-700">
-            {properties.length} properties available at {village === 'moline' ? 'Moline Village' : 'Riverside Village'}
+            {properties.length} properties available at {village === 'moline' ? 'Moline Village' : 'Collier Park'}
           </p>
           {lastSync && (
             <p className="text-xs text-gray-500 mt-1">
@@ -202,7 +202,7 @@ export function RiversidePropertiesSection() {
     <DynamicPropertySection
       village="riverside"
       title="AVAILABLE UNITS"
-      subtitle="View available units at Riverside Village"
+      subtitle="View available units at Collier Park"
       maxProperties={6}
     />
   );

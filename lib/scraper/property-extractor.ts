@@ -39,7 +39,7 @@ interface NextDataStructure {
 export class PropertyExtractor {
   private static readonly VILLAGE_URLS = {
     'moline': 'https://www.amanaliving.com.au/retirement-villages/locations/moline-village',
-    'riverside': 'https://www.amanaliving.com.au/retirement-villages/locations/riverside-village'
+    'riverside': 'https://www.amanaliving.com.au/retirement-villages/locations/collier-park'
   };
 
   /**
