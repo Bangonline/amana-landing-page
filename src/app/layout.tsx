@@ -35,6 +35,12 @@ export default function RootLayout({
             `,
           }}
         />
+        {/* BugHerd */}
+        <script 
+          type="text/javascript" 
+          src="https://www.bugherd.com/sidebarv2.js?apikey=g3fqroxzkhfea0zmen13vg" 
+          async={true}
+        />
       </head>
       <body className={`${lato.variable} font-sans antialiased bg-white text-amana-text-primary`}>
         {/* Google Tag Manager (noscript) */}
