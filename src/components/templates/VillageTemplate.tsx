@@ -63,6 +63,7 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button
+                    size="lg"
                     onClick={() => {
                       const element = document.getElementById('tour-booking');
                       if (element) {
@@ -76,6 +77,7 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
                     Make an enquiry
                   </Button>
                   <Button 
+                    size="lg"
                     variant="outline" 
                     className="bg-white text-black border-white hover:bg-gray-100 hover:text-black cursor-pointer transition-all duration-300"
                     style={{ backgroundColor: 'white', color: 'black', borderColor: 'white' }}
