@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Retirement Villages - Moline Village | Amana Living',
     description: 'Moline Village is the perfect spot to take advantage of the enviable Karrinyup lifestyle, close to Trigg Beach, and the multi-million dollar redevelopments of Scarborough Beach and Karrinyup Shopping Centre.',
-    images: ['/images/locations/moline/01-feature.png'],
+    images: ['/images/locations/moline/01-feature.jpg'],
     url: 'https://www.amanaliving.com.au/retirement-villages/locations/moline-village',
   },
 }
@@ -22,7 +22,7 @@ export default function MolineVillagePage() {
         "description": "Moline Village is the perfect spot to take advantage of the enviable Karrinyup lifestyle, close to Trigg Beach, and the multi-million dollar redevelopments of Scarborough Beach and Karrinyup Shopping Centre. Enjoy scenic walks in the Trigg Bushland Reserve, hit a hole in one at a local golf course or head to Perth's CBD which is only 14km away.   Designed for over 55s, the village offers easy living with low maintenance homes in a tranquil setting. Feel safe and secure in this friendly village which has an active and welcoming community. You can take part in the many social activities or make the most of the village's amenities including swimming pool, mini gym, library, bocce court, mini golf range and more.  Each floor has a large communal sunroom where you can unwind with a beverage and a good book or meet up with friends. Plus, there is a general store run by resident volunteers, and visiting services including hair salon, beauty therapist, massage therapist, and podiatrist.  There's also a weekly shopper bus service to the local shopping centre.  These lease for life apartments are available to view by appointment.",
         "image": {
           "@type": "ImageObject",
-          "url": "/images/locations/moline/01-feature.png"
+          "url": "/images/locations/moline/01-feature.jpg"
         },
         "mainEntityOfPage": "https://www.amanaliving.com.au/retirement-villages/locations/moline-village",
         "name": "Retirement Villages  - Moline Village",

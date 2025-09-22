@@ -18,15 +18,15 @@ export const collierParkData: VillageData = {
   ],
   galleryImages: [
     '/images/locations/collier-park/01-feature.jpg',
-    '/images/locations/collier-park/02-exterior-01.png',
+    '/images/locations/collier-park/02-exterior-01.jpg',
     '/images/locations/collier-park/03-exterior-02.jpg',
     '/images/locations/collier-park/04-exterior-03.jpg',
     '/images/locations/collier-park/05-exterior-04.jpg',
     '/images/locations/collier-park/06-interior-01.jpg',
     '/images/locations/collier-park/07-interior-02.jpg',
-    '/images/locations/collier-park/08-interior-03.png',
+    '/images/locations/collier-park/08-interior-03.jpg',
     '/images/locations/collier-park/09-interior-04.jpg',
-    '/images/locations/collier-park/10-interior-05.png'
+    '/images/locations/collier-park/10-interior-05.jpg'
   ],
   
   // Overview section
