@@ -18,17 +18,14 @@ export const molineVillageData: VillageData = {
   ],
   galleryImages: [
     '/images/locations/moline/01-feature.jpg',
-    '/images/locations/moline/02-exterior-01.jpg',
-    '/images/locations/moline/03-exterior-02.jpg',
-    '/images/locations/moline/04-exterior-03.jpg',
-    '/images/locations/moline/05-exterior-04.jpg',
-    '/images/locations/moline/06-interior-01.jpg',
-    '/images/locations/moline/07-interior-02.jpg',
-    '/images/locations/moline/08-interior-03.jpg',
-    '/images/locations/moline/09-interior-04.jpg',
-    '/images/locations/moline/10-interior-05.jpg',
-    '/images/locations/moline/11-interior-06.jpg',
-    '/images/locations/moline/12-interior-07.jpg'
+    '/images/locations/moline/07-interior-01.jpg',
+    '/images/locations/moline/08-interior-02.jpg',
+    '/images/locations/moline/09-interior-03.jpg',
+    '/images/locations/moline/02-external-01.jpg',
+    '/images/locations/moline/03-external-02.jpg',
+    '/images/locations/moline/04-external-03.jpg',
+    '/images/locations/moline/05-external-04.jpg',
+    '/images/locations/moline/06-external-05.jpg'
   ],
   
   // Overview section
