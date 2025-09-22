@@ -17,16 +17,16 @@ export const collierParkData: VillageData = {
     'Two Meeting Venues'
   ],
   galleryImages: [
-    '/images/locations/collier-park/01-feature.jpg',
-    '/images/locations/collier-park/06-interior-01.jpg',
-    '/images/locations/collier-park/07-interior-02.jpg',
-    '/images/locations/collier-park/08-interior-03.jpg',
-    '/images/locations/collier-park/09-interior-04.jpg',
-    '/images/locations/collier-park/10-interior-05.jpg',
-    '/images/locations/collier-park/02-external-01.jpg',
-    '/images/locations/collier-park/03-external-02.jpg',
-    '/images/locations/collier-park/05-external-04.jpg',
-    '/images/locations/collier-park/04-external-03.jpg'
+    '/images/locations/collier-park/01-feature.jpg?v=2025-01-22',
+    '/images/locations/collier-park/06-interior-01.jpg?v=2025-01-22',
+    '/images/locations/collier-park/07-interior-02.jpg?v=2025-01-22',
+    '/images/locations/collier-park/08-interior-03.jpg?v=2025-01-22',
+    '/images/locations/collier-park/09-interior-04.jpg?v=2025-01-22',
+    '/images/locations/collier-park/10-interior-05.jpg?v=2025-01-22',
+    '/images/locations/collier-park/02-external-01.jpg?v=2025-01-22',
+    '/images/locations/collier-park/03-external-02.jpg?v=2025-01-22',
+    '/images/locations/collier-park/05-external-04.jpg?v=2025-01-22',
+    '/images/locations/collier-park/04-external-03.jpg?v=2025-01-22'
   ],
   
   // Overview section

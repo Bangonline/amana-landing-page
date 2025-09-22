@@ -11,6 +11,20 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Add cache busting headers for static assets
+  async headers() {
+    return [
+      {
+        source: '/images/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400, must-revalidate',
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

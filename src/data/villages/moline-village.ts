@@ -17,15 +17,15 @@ export const molineVillageData: VillageData = {
     'Games room'
   ],
   galleryImages: [
-    '/images/locations/moline/01-feature.jpg',
-    '/images/locations/moline/07-interior-01.jpg',
-    '/images/locations/moline/08-interior-02.jpg',
-    '/images/locations/moline/09-interior-03.jpg',
-    '/images/locations/moline/02-external-01.jpg',
-    '/images/locations/moline/03-external-02.jpg',
-    '/images/locations/moline/04-external-03.jpg',
-    '/images/locations/moline/05-external-04.jpg',
-    '/images/locations/moline/06-external-05.jpg'
+    '/images/locations/moline/01-feature.jpg?v=2025-01-22',
+    '/images/locations/moline/07-interior-01.jpg?v=2025-01-22',
+    '/images/locations/moline/08-interior-02.jpg?v=2025-01-22',
+    '/images/locations/moline/09-interior-03.jpg?v=2025-01-22',
+    '/images/locations/moline/02-external-01.jpg?v=2025-01-22',
+    '/images/locations/moline/03-external-02.jpg?v=2025-01-22',
+    '/images/locations/moline/04-external-03.jpg?v=2025-01-22',
+    '/images/locations/moline/05-external-04.jpg?v=2025-01-22',
+    '/images/locations/moline/06-external-05.jpg?v=2025-01-22'
   ],
   
   // Overview section
