@@ -117,7 +117,7 @@ export function PropertyCard(props: CombinedPropertyCardProps) {
         <Button 
           onClick={() => {
             if (detailsUrl) {
-              window.open(detailsUrl, '_blank', 'noopener,noreferrer');
+              window.location.href = detailsUrl;
             }
           }}
           variant="primary"

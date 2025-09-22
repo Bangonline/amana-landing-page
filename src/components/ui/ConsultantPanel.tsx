@@ -32,8 +32,6 @@ export function ConsultantPanel({ consultant, villageName, className = '' }: Con
           <div className="space-y-2">
             <a 
               href="https://www.amanaliving.com.au/contact-us#contact"
-              target="_blank"
-              rel="noopener noreferrer"
               className={`inline-flex items-center justify-center font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none cursor-pointer disabled:cursor-not-allowed hover:-translate-y-0.5 shadow-md hover:shadow-lg h-12 px-8 text-lg rounded-lg text-white hover:bg-orange-600 ${consultant.firstName ? 'bg-orange-500' : 'bg-white border border-black text-black hover:bg-gray-100'}`}
             >
               Make an enquiry

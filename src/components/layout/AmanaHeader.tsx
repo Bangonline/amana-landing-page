@@ -166,10 +166,10 @@ export function AmanaHeader() {
                 <Link href="https://www.amanaliving.com.au/about-us/how-you-can-help/donate" className="block text-sm text-gray-600 hover:text-gray-800 transition-colors">
                   Donate
                 </Link>
-                <Link href="https://careers.amanaliving.com.au/" target="_blank" rel="noopener noreferrer" className="block text-sm text-gray-600 hover:text-gray-800 transition-colors">
+                <Link href="https://careers.amanaliving.com.au/" className="block text-sm text-gray-600 hover:text-gray-800 transition-colors">
                   Careers
                 </Link>
-                <Link href="https://training.amanaliving.com.au" target="_blank" rel="noopener noreferrer" className="block text-sm text-gray-600 hover:text-gray-800 transition-colors">
+                <Link href="https://training.amanaliving.com.au" className="block text-sm text-gray-600 hover:text-gray-800 transition-colors">
                   Training
                 </Link>
                 <Link href="https://www.amanaliving.com.au/about-us/how-you-can-help/volunteer" className="block text-sm text-gray-600 hover:text-gray-800 transition-colors">
