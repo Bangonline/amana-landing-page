@@ -64,15 +64,7 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button
                     size="lg"
-                    onClick={() => {
-                      const element = document.getElementById('tour-booking');
-                      if (element) {
-                        element.scrollIntoView({ 
-                          behavior: 'smooth',
-                          block: 'start'
-                        });
-                      }
-                    }}
+                    onClick={() => window.location.href = 'https://www.amanaliving.com.au/contact-us'}
                   >
                     Make an enquiry
                   </Button>
@@ -120,7 +112,7 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
       {/* Village Overview Section */}
       <section className="py-16 px-4" style={{ backgroundColor: '#BED1E3' }}>
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 gap-12 items-stretch">
             <div className="space-y-6">
               <div>
                 <h2 className="text-sm font-bold uppercase text-gray-500 mb-2">
@@ -341,7 +333,7 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
       {/* Tour Booking Section */}
       <section id="tour-booking" className="py-16 px-4 text-white" style={{ backgroundColor: '#004676' }}>
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-12 items-stretch">
             <div className="space-y-6">
               <h2 className="text-3xl md:text-4xl font-bold">
                 Book a tour of {villageData.name}
