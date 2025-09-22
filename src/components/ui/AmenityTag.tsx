@@ -9,7 +9,7 @@ export function AmenityTag({ label, className }: AmenityTagProps) {
   return (
     <span
       className={cn(
-        'inline-block px-3 py-1 bg-gray-100 text-black text-sm font-medium rounded-md',
+        'inline-block px-2 py-0.5 bg-gray-100 text-black text-xs font-medium rounded-md',
         className
       )}
     >
