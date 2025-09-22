@@ -48,10 +48,9 @@ export const collierParkData: VillageData = {
   consultant: {
     firstName: 'Lorraine',
     lastName: 'Baldwin',
-    image: '/images/lorraine.jpeg',
     phone: '0459 819 169',
     email: 'LBaldwin@amanaliving.com.au',
-    description: 'Interested in finding out more information or booking a tour of Collier Park Village? Get in touch with Lorraine our friendly consultant to learn more about our beautiful village and arrange a personalized tour.'
+    description: 'Interested in finding out more information or booking a tour of Collier Park Village? Get in touch Amana Living today to learn more about our beautiful village and arrange a personalised tour.'
   },
   
   // Location section
@@ -125,7 +124,7 @@ export const collierParkData: VillageData = {
   
   // Navigation
   breadcrumbItems: [
-    { label: 'HOME', href: 'https://www.amanaliving.com.au/' },
+    { label: 'Home', href: 'https://www.amanaliving.com.au/' },
     { label: 'Retirement Villages', href: 'https://www.amanaliving.com.au/retirement-villages' },
     { label: 'Collier Park Village' }
   ]
