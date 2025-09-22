@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Retirement Villages - Collier Park Village | Amana Living',
     description: 'Nestled in Como, Collier Park Village provides exclusive independent living accommodation for individuals aged 55 and above, surrounded by beautifully landscaped gardens.',
-    images: ['https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/collier-park/_1200x630_crop_center-center_82_none/Collier-Park-Village1-Como-EX-9.jpg?mtime=1719898186'],
+    images: ['/images/locations/collier-park/01-feature.jpg'],
     url: 'https://www.amanaliving.com.au/retirement-villages/locations/collier-park',
   },
 }
@@ -22,7 +22,7 @@ export default function CollierParkPage() {
         "description": "Nestled in Como, Collier Park Village provides exclusive independent living accommodation for individuals aged 55 and above, surrounded by beautifully landscaped gardens. Our village boasts 169 two-bedroom independent villas, along with community and leisure centres, all designed to enhance your living experience. We are also pet friendly!  Collier Park Village offers two meeting venues on-site for our residents' convenience. The Community Centre, available to residents and their families, is a charming and well-equipped space for social gatherings and community events. Our village thrives on a vibrant social committee and the generous volunteerism of residents, ensuring a diverse range of activities and events such as cards, bingo, afternoon teas, and exercise classes, all held exclusively for our residents' enjoyment in the Community Centre. Additionally, our comprehensive library offers a wide selection of movies for borrowing, providing ample opportunities for relaxation and entertainment.",
         "image": {
           "@type": "ImageObject",
-          "url": "https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/collier-park/_1200x630_crop_center-center_82_none/Collier-Park-Village1-Como-EX-9.jpg?mtime=1719898186"
+          "url": "/images/locations/collier-park/01-feature.jpg"
         },
         "mainEntityOfPage": "https://www.amanaliving.com.au/retirement-villages/locations/collier-park",
         "name": "Retirement Villages  - Collier Park Village",

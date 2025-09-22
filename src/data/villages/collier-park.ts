@@ -17,25 +17,16 @@ export const collierParkData: VillageData = {
     'Two Meeting Venues'
   ],
   galleryImages: [
-    'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/collier-park/Collier-Park-Village1-Como-EX-6.jpg',
-    'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/collier-park/Collier-Park-Village-Como-INT-6.jpg',
-    'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/collier-park/Collier-Park-Village-Como-INT-4.jpg',
-    'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/collier-park/Collier-Park-Village1-Como-EX-9.jpg',
-    'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/collier-park/Collier-Park-Village1-Como-EX-10.jpg',
-    'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/collier-park/Villa-40-16-Morrison-Street-Como2A-VS.jpg',
-    'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/collier-park/Villa-40-16-Morrison-Street-Como3A-VS.jpg',
-    'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/collier-park/Villa-40-16-Morrison-Street-Como5.jpg',
-    'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/collier-park/Villa-40-16-Morrison-Street-Como10A-vs-003.jpg',
-    'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/collier-park/Collier-Park-Village1-Como-EX-3.jpg',
-    'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/collier-park/Collier-Park-Village1-Como-EX-12.jpg',
-    'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/collier-park/Collier-Park-Village1-Como-EX-22.jpg',
-    'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/collier-park/Collier-Park-Village1-Como-EX-18.jpg',
-    'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/collier-park/Collier-Park-Village1-Como-EX-8.jpg',
-    'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/collier-park/Collier-Park-Village1-Como-EX-4.jpg',
-    'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/collier-park/Collier-Park-Village1-Como-EX-35.jpg',
-    'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/collier-park/Collier-Park-Village-Como-INT-3.jpg',
-    'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/collier-park/Collier-Park-Village-Como-INT-1.jpg',
-    'https://s3.ap-southeast-2.amazonaws.com/amana-living/assets/retirementVillageLocations/photos/collier-park/Collier-Park-Village-Como-INT-5.jpg'
+    '/images/locations/collier-park/01-feature.jpg',
+    '/images/locations/collier-park/02-exterior-01.png',
+    '/images/locations/collier-park/03-exterior-02.jpg',
+    '/images/locations/collier-park/04-exterior-03.jpg',
+    '/images/locations/collier-park/05-exterior-04.jpg',
+    '/images/locations/collier-park/06-interior-01.jpg',
+    '/images/locations/collier-park/07-interior-02.jpg',
+    '/images/locations/collier-park/08-interior-03.png',
+    '/images/locations/collier-park/09-interior-04.jpg',
+    '/images/locations/collier-park/10-interior-05.png'
   ],
   
   // Overview section
