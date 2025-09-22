@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Lato } from "next/font/google";
+import Script from "next/script";
+import { ClientOnlyScript } from "@/components/ClientOnlyScript";
 import "./globals.css";
 
 const lato = Lato({
@@ -22,9 +24,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
+      <head />
+      <body className={`${lato.variable} font-sans antialiased bg-white text-amana-text-primary`}>
         {/* Google Tag Manager */}
-        <script
+        <Script
+          id="gtm-script"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -35,14 +40,13 @@ export default function RootLayout({
             `,
           }}
         />
+        
         {/* BugHerd */}
-        <script 
-          type="text/javascript" 
+        <Script 
           src="https://www.bugherd.com/sidebarv2.js?apikey=g3fqroxzkhfea0zmen13vg" 
-          async={true}
+          strategy="afterInteractive"
         />
-      </head>
-      <body className={`${lato.variable} font-sans antialiased bg-white text-amana-text-primary`}>
+        
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
@@ -52,6 +56,7 @@ export default function RootLayout({
             style={{ display: 'none', visibility: 'hidden' }}
           />
         </noscript>
+        <ClientOnlyScript />
         {children}
       </body>
     </html>

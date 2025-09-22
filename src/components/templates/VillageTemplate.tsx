@@ -41,9 +41,9 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
       <HeroBackground>
         <section className="py-16 px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-start">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
               {/* Left Column - Content */}
-              <div className="space-y-6">
+              <div className="space-y-6 flex flex-col justify-center">
                 <div>
                   <h1 className="text-4xl md:text-5xl font-bold text-black mb-4">
                     {villageData.heroTitle}

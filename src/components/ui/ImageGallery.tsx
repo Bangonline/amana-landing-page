@@ -287,9 +287,6 @@ export function ImageGallery({
             ))}
           </div>
           
-          {/* Visual indicator for scrollability - only show on larger screens where thumbnails don't wrap */}
-          <div className="hidden sm:block absolute right-0 top-0 bottom-2 w-6 bg-gradient-to-l from-white via-white to-transparent pointer-events-none opacity-50" />
-          <div className="hidden sm:block absolute left-0 top-0 bottom-2 w-6 bg-gradient-to-r from-white via-white to-transparent pointer-events-none opacity-50" />
         </div>
       )}
       
