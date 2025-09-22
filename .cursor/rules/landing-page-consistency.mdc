@@ -1,0 +1,72 @@
+---
+description: This rule ensures consistency across landing pages by prompting to apply changes to other landing pages when making modifications
+globs: ["src/app/(landing-pages)/**/*", "src/data/villages/**/*", "src/components/templates/**/*"]
+alwaysApply: true
+---
+# Landing Page Consistency Rule
+
+This rule ensures that changes made to one landing page are considered for application to other landing pages to maintain consistency across the site.
+
+## When This Rule Applies
+
+This rule applies when making changes to:
+- Landing page components in [src/app/(landing-pages)](mdc:src/app/(landing-pages))
+- Village data files in [src/data/villages](mdc:src/data/villages)
+- Template components in [src/components/templates](mdc:src/components/templates)
+- Any shared components or utilities that affect landing page functionality
+
+## Current Landing Pages
+
+The project currently has the following landing pages:
+- **Collier Park**: [src/app/(landing-pages)/collier-park/page.tsx](mdc:src/app/(landing-pages)/collier-park/page.tsx)
+- **Moline Village**: [src/app/(landing-pages)/moline-village/page.tsx](mdc:src/app/(landing-pages)/moline-village/page.tsx)
+
+## Required Workflow
+
+When making changes to any landing page or related components, you MUST:
+
+1. **Complete the requested change** on the target landing page
+2. **Identify the scope** of the change (component, styling, functionality, data, etc.)
+3. **Ask the user** if the same change should be applied to the other landing page(s)
+4. **Wait for confirmation** before proceeding with additional changes
+5. **Apply changes consistently** if approved by the user
+
+## Example Prompt
+
+After completing a change, use this format:
+
+```
+## Change Complete
+
+I've successfully [brief description of change] for [landing page name].
+
+### Change Details:
+- [Specific details of what was modified]
+- [Files that were changed]
+
+### Consistency Check:
+Should this same change be applied to [other landing page name] to maintain consistency across the site?
+
+[Brief explanation of why this change might be beneficial for consistency]
+```
+
+## Types of Changes That Should Be Considered
+
+- **UI/UX improvements**: Layout changes, styling updates, component enhancements
+- **Functionality additions**: New features, interactive elements, form improvements
+- **Content updates**: Text changes, image updates, contact information
+- **Performance optimizations**: Code improvements, loading enhancements
+- **Accessibility improvements**: ARIA labels, keyboard navigation, screen reader support
+- **SEO enhancements**: Meta tags, structured data, page titles
+
+## Exceptions
+
+This rule does NOT apply to:
+- Changes that are specific to a particular village's unique characteristics
+- Content that is inherently different between villages (location-specific information, unique amenities)
+- Experimental or temporary changes marked as such
+- Bug fixes that are specific to one landing page's implementation
+
+## Enforcement
+
+This rule has `alwaysApply: true` and must be followed for ALL changes to landing page components, regardless of the specific request or context. The goal is to maintain a consistent user experience across all Amana Living village landing pages.
