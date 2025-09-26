@@ -83,8 +83,8 @@ export const molineVillageData: VillageData = {
   
   // Content sections
   testimonial: {
-    quote: 'Moving to Moline has been so amazing. The community is wonderful and the amenities are so enjoyable. It\'s close to the beach and shops - I couldn\'t ask for anything more',
-    author: 'Jane Smith',
+    quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    author: 'Test Test',
     role: 'Resident',
     location: 'Moline Village',
     rating: 5

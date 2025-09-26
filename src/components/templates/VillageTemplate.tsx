@@ -196,7 +196,7 @@ export function VillageTemplate({ villageData }: VillageTemplateProps) {
             
             <div className="rounded-lg overflow-hidden min-h-[300px]">
               <Image
-                src="/images/lady.jpg"
+                src="https://placehold.co/600x400"
                 alt="Amana Living resident"
                 width={600}
                 height={400}

@@ -84,8 +84,8 @@ export const collierParkData: VillageData = {
   
   // Content sections
   testimonial: {
-    quote: 'Moving to Collier Park has been so amazing. The community is wonderful and the amenities are so enjoyable. It\'s close to shops and transport - I couldn\'t ask for anything more. The beautiful gardens make it feel like home.',
-    author: 'Margaret Wilson',
+    quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    author: 'Test',
     role: 'Resident',
     location: 'Collier Park Village',
     rating: 5
